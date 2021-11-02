@@ -19,17 +19,20 @@ body {
 }
 
 #top_logo {
-    width: 150px;
-    height: 15vh;
-    margin-left: 1vw;
+    width: 70px;
+    height: 70px;
+    margin-left: 3vw;
     background-color: white;
-    line-height: 15vh;
+    line-height: 70px;
     text-align: center;
     transition: all .2s ease-in-out;
+
+    background-image: URL(../IMG/logo.png);
+    background-size: contain;
 }
 
 #top_logo:hover {
-    background-color: grey;
+    /* background-color: grey; */
 }
 
 #register {
@@ -123,24 +126,47 @@ body {
 
 #logo {
     width: 100%;
-    height: 30vh;
-    background-color: rgb(88, 129, 88);
+    height: 50vh;
+    background-color: rgb(129, 100, 88);
     text-align: center;
-    line-height: 30vh;
+    line-height: 50vh;
 }
 
 #search {
     width: 100%;
     height: 15vh;
-    background-color: rgb(84, 84, 170);
+    background-color: rgb(255, 118, 64);
     text-align: center;
     line-height: 15vh;
+}
+
+#search_input {
+    width: 70%;
+    height: 10vh;
+    font-size: 20px;
+    border: 0;
+    border-bottom: solid 3px;
+    border-color: white;
+    background-color: rgb(255, 118, 64);
+    color: white;
+    padding-left: 20px;
+}
+
+#search_submit {
+    width: 15vw;
+    height: 10vh;
+    font-size: 20px;
+    margin-left: 1vw;
+    color: white;
+    background-color: rgb(255, 118, 64);
+    border: solid 3px;
+    border-color: white;
 }
 
 #pop_category {
     display: flex;
     width: 100%;
-    height: 25vh;
+    height: 28vh;
     margin: 0%;
     background-color: white;
 }
@@ -151,17 +177,38 @@ body {
     margin-left: 40px;
     margin-top: 10px;
     border-radius:50%;
-    background-color: rgb(110, 99, 211);
+    background-color: white;
     /* color: white; */
     transition: all .2s ease-in-out;
+    
+    border: dotted 5px;
+    border-color: white;
 }
 
 .pop_category_in:hover {
-    background-color: rgb(28, 5, 231);
+    border: dotted 5px;
+    border-color: black;
 }
 
 #pop_category_1 {
     margin-left: 25%;
+    background-image: URL(../IMG/add.png);
+    background-size: contain;
+}
+
+#pop_category_2 {
+    background-image: URL(../IMG/borrow.png);
+    background-size: contain;
+}
+
+#pop_category_3 {
+    background-image: URL(../IMG/solution.png);
+    background-size: contain;
+}
+
+#pop_category_4 {
+    background-image: URL(../IMG/notice.png);
+    background-size: contain;
 }
 
 .pop_category_text {
@@ -172,13 +219,18 @@ body {
 .recommend_in {
     width: 100%;
     height: 10vh;
-    transition: all .2s ease-in-out;
     line-height: 10vh;
     text-align: center;
+    border-bottom: solid 3px;
+    border-color: rgb(255, 118, 64);
+    transition: all .2s ease-in-out;
 }
 
 .recommend_in:hover {
     font-weight: bold;
+    border-bottom: solid 3px;
+    border-color: black;
+    transition: all .2s ease-in-out;
 }
 
 #recommend_book {
@@ -190,7 +242,7 @@ body {
     width: 100%;
     height: 45vh;
     margin: 0%;
-    background-color: rgb(88, 129, 88);
+    background-color: rgb(255, 118, 64);
 }
 
 #book_container {
@@ -208,7 +260,7 @@ body {
 }
 
 #recommend_category {
-    background-color: rgb(88, 129, 88);
+    background-color: rgb(255, 118, 64);
     margin-left: 3vw;
     width: 15%;
     height: 100%;
@@ -216,10 +268,10 @@ body {
 }
 
 .book {
-    background-color: rgb(110, 99, 211);
+    background-color: white;
     margin-top: 3vh;
-    margin-left: 3vw;
-    width: 14vw;
+    margin-left: 4vw;
+    width: 13vw;
     height: 38vh;
     transition: all .2s ease-in-out;
     text-align: center;
@@ -227,7 +279,7 @@ body {
 }
 
 .book:hover {
-    background-color: rgb(28, 5, 231);
+    /* background-color: grey; */
 }
 
 #book_recommend_1, #book_new_1, #book_solution_1 {
