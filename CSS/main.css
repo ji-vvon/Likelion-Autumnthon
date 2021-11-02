@@ -64,12 +64,12 @@ body {
 }
 
 .header_in {
-    width: 15%;
+    width: 20%;
     height: 100%;
     opacity: 100%;
     transition: all .2s ease-in-out;
 }
-.header_in:not(#header_5) {
+.header_in:not(#header_4) {
     box-shadow: 3px 1px 5px -4px;
 }
 
@@ -78,7 +78,7 @@ body {
 }
 
 #header_1 {
-    margin-left: 12.5%;
+    margin-left: 10%;
 }
 
 .header_text {
@@ -94,6 +94,31 @@ body {
     height: 1px;
     background-color: white;
     transition: all .2s ease-in-out;
+    overflow: hidden;
+}
+
+.header_specific_in {
+    width: 20%;
+    margin: 0;
+    height: 10vh;
+    line-height: 10vh;
+    text-align: center;
+    transition: all .2s ease-in-out;
+}
+
+#enroll {
+    margin-left: 10%;
+}
+
+.enroll_in, .borrow_in, .solution_in, .billim_in {
+    width: 100%;
+    background-color: white;
+    transition: all .2s ease-in-out;
+}
+
+.enroll_in:hover, .borrow_in:hover, .solution_in:hover, .billim_in:hover {
+    width: 100%;
+    background-color: rgb(212, 212, 212);
 }
 
 #logo {
@@ -169,10 +194,17 @@ body {
 }
 
 #book_container {
-    display: flex;
+    /* display: flex; */
     width: 75%;
     height: 100%;
     margin-left: 5vw;
+    overflow: hidden;
+}
+
+#book_recommend, #book_new, #book_solution {
+    display: flex;
+    width: 100%;
+    height: 100%;
 }
 
 #recommend_category {
@@ -198,7 +230,7 @@ body {
     background-color: rgb(28, 5, 231);
 }
 
-#book_1 {
+#book_recommend_1, #book_new_1, #book_solution_1 {
     margin-left: 4vw;
 }
 
