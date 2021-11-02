@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% block content %}
+<head>
+     <style>
+        body {
+            text-align: center;
+        }
+         .body {
+            margin: 0 10%;
+            display: inline-block;
+            color: rgb(0, 0, 0);
+        }
+
+        h2 {
+            font-family: sans-serif;
+        }
+
+        .content {
+            border:2px solid rgb(167, 46, 42);
+            margin: 15px 10px;
+            padding: 10px;
+            width: 300px;
+            height: 400px;
+            border-radius: 10%;
+            float: left;
+        }
+
+        .sub {
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        .page {
+            display: inline-block;
+            font-size: 20px;
+        }
+     </style>
+</head>
+  
+<body> 
+    <h1>책 대여하기</h1> 
+
+    <div class="body">
+        {% for content in books %}
+        <div class="content">
+            <h2>{{content.title}}</h2>
+            <!-- <div class="sub">
+                {{content.author}} | {{content.publisher}}<br><br>
+                {% if content.img %}
+                <a id="more" href="{%url 'detail' content.id %}"><img src="{{content.image_thumbnail.url}}"></a>
+                {% endif %}
+                <br>
+            </div>
+        </div> -->
+        {% endfor %}
+    </div>
+<br>
+<!-- <div class="page">
+    {% if posts.has_previous %}
+    <a href="?page=1">1</a>
+    <a href="?page={{posts.previous_page_number}}">◀</a>
+    {% endif %}
+
+    <span>{{posts.number}}</span>
+    <span>of</span>
+    <span>{{posts.paginator.num_pages}}</span>
+
+    {%if posts.has_next%}
+    <a href="?page={{posts.next_page_number}}">▶</a>
+    <a href="?page={{posts.paginator.num_pages}}">{{posts.paginator.num_pages}}</a>
+    {% endif %}
+</div> -->
+</body>
+{% endblock %}

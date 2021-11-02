@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<head>
+      <style>
+        body {
+            text-align: center;
+        } 
+        
+     
+      </style>
+  </head>
+  
+  <body>
+  <h1>Solution</h1> 
+    <br>
+    <form action="{% url 'solution_search' %}" method="post">
+        {% csrf_token %}
+        <input id="search" type="search" placeholder="Search" aria-label="Search" name="find" value="{{find}}">
+        <button class="btn btn-outline-success" type="submit">🔎Search</button>
+    </form>
+
+    <div class="body">
+        {% for content in contents %}
+        <div class="content">
+            <h2>{{content.title}}</h2>
+            <div class="sub">
+                작성자<br><br>
+                {{content.content}}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <br>
+    <div class="page">
+        {% if posts.has_previous %}
+        <a href="?page=1">1</a>
+        <a href="?page={{posts.previous_page_number}}">◀</a>
+        {% endif %}
+
+        <span>{{posts.number}}</span>
+        <span>of</span>
+        <span>{{posts.paginator.num_pages}}</span>
+
+        {%if posts.has_next%}
+        <a href="?page={{posts.next_page_number}}">▶</a>
+        <a href="?page={{posts.paginator.num_pages}}">{{posts.paginator.num_pages}}</a>
+        {% endif %}
+    </div>
+
+    <br>
+  </body>
+  
+{% endblock %}

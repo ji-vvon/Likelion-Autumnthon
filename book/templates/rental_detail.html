@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block content %}
+<head>
+     <style>
+         body {
+            text-align: left;
+            font-family: sans-serif;
+            margin:10%;
+        }
+
+        .book_container {
+            margin : 10px 0;
+        }
+
+        img {
+            margin:0 3%;
+            width:200px;
+            height: 240px;
+            float: left;
+        }
+
+        .book_container {
+            padding: 3%;
+            border:3px solid rgb(140, 138, 145);
+            border-radius: 30px;
+        }
+
+        .book_container_content {
+        margin: 0 10%;
+        }
+
+        #book_rental_btn {
+        width: 100px;
+        height: 40px;
+        color: #000000;
+        background-color: white;
+        border: 2px solid rgb(167, 46, 42);
+        border-radius: 8px;
+        font-weight: bold;
+        }
+
+     </style>
+</head>
+  
+<body>
+    <div class="book_container">
+        <div class="book_container_content">
+            <h2>{{book.title}}</h2><hr>
+        
+                저자: 윤성우<br>
+                출판사 : 오렌지미디어<br>
+                카테고리 : IT<br><br>
+                상태 : 대여가능 <br><br>
+                <a href="">
+                    <button id="book_rental_btn">대여 신청</button>
+                </a>
+        </div>
+</div>
+</body>
+  
+{% endblock %}

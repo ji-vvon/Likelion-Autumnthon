@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/main.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&family=Nanum+Gothic:wght@700&display=swap"
+		rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="/static/js/main.js"></script>
+    <title>빌려주다</title>
+</head>
+<body>
+    <div id="logo">
+    </div>
+    <div id="search">
+        <form>
+            <input type="text" id="search_input" placeholder="검색어를 입력해주세요"/>
+            <input type="submit" id="search_submit" />
+        </form>
+    </div>
+    <div id="pop_category">
+        <div title="책 등록하기" id="pop_category_1" class="pop_category_in">   
+            <div class="pop_category_text">
+                <!-- 책 등록하기 -->
+            </div>
+        </div>
+        <div title="책 대여하기" id="pop_category_2" class="pop_category_in">   
+            <div class="pop_category_text">
+                <!-- 책 대여하기 -->
+            </div>
+        </div>
+        <div title="솔루션 보기" id="pop_category_3" class="pop_category_in">   
+            <div class="pop_category_text">
+                <!-- 솔루션 보기 -->
+            </div>
+        </div>
+        <div title="공지사항" id="pop_category_4" class="pop_category_in">   
+            <div class="pop_category_text">
+                <!-- 공지사항 -->
+            </div>
+        </div>
+    </div>
+    <div id="recommend">
+        <div id="recommend_category">
+            <div id="recommend_book" class="recommend_in">
+                추천책
+            </div>
+            <div id="new_book" class="recommend_in">
+                새로운책
+            </div>
+            <div id="solution_book" class="recommend_in">
+                최근 솔루션 등록
+            </div>
+        </div>
+        <div id="book_container">
+            <div id="book_recommend">
+                <div id="book_recommend_1" class="book"> 
+                    추천책1
+                </div>
+                <div id="book_recommend_2" class="book">
+                    추천책2
+                </div>
+                <div id="book_recommend_3" class="book"> 
+                    추천책3
+                </div>
+                <div id="book_recommend_4" class="book"> 
+                    추천책4
+                </div>
+            </div>
+            <div id="book_new">
+                <div id="book_new_1" class="book"> 
+                    새로운책1
+                </div>
+                <div id="book_new_2" class="book">
+                    새로운책2
+                </div>
+                <div id="book_new_3" class="book"> 
+                    새로운책3
+                </div>
+                <div id="book_new_4" class="book"> 
+                    새로운책4
+                </div>
+            </div>
+            <div id="book_solution">
+                <div id="book_solution_1" class="book"> 
+                    솔루션책1
+                </div>
+                <div id="book_solution_2" class="book">
+                    솔루션책2
+                </div>
+                <div id="book_solution_3" class="book"> 
+                    솔루션책3
+                </div>
+                <div id="book_solution_4" class="book"> 
+                    솔루션책4
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="bottom">
+        <div id="bottom_text">
+            <div>
+            우편번호 12345 서울특별시 광진구 화양동
+            </div>
+            <div>
+            문의전화 02-123-4567 팩스 02-987-6543
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+{% endblock %}

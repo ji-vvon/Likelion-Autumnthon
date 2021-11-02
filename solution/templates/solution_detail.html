@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% block content %}
+<head>
+     <style>
+         body {
+            text-align: center;
+            font-family: sans-serif;
+            margin:10%;
+        }
+
+        .book_container {
+            margin : 10px 0;
+        }
+
+        img {
+            margin:0 3%;
+            width:200px;
+            height: 240px;
+        }
+
+        .book_container {
+            padding: 3%;
+            border:3px solid rgb(140, 138, 145);
+            border-radius: 30px;
+        }
+
+        .book_container_content {
+        margin: 0 10%;
+        }
+
+        #book_rental_btn {
+        width: 100px;
+        height: 40px;
+        color: #000000;
+        background-color: white;
+        border: 2px solid rgb(167, 46, 42);
+        border-radius: 8px;
+        font-weight: bold;
+        }
+
+     </style>
+</head>
+  
+<body>
+    <div class="book_container">
+        <div class="book_container_content">
+            <h2>질문....</h2><hr>
+            <img src="http://image.kyobobook.co.kr/images/book/xlarge/050/x9788996094050.jpg" alt="책 표지"><br><br>
+            
+                <b>작성자</b> 홍길동 <br><br>
+                <b>내용</b> <br> 답안지가 없습니다. <br><br>
+                 2021-11-02 <br>
+             
+        </div>
+</div>
+
+
+<h3>댓글</h3>
+{% if user.is_authenticated %}
+<form method="POST" action="" id="comment_form">
+    {% csrf_token %}
+    {{form}}
+    <input type="submit" value="확인" id="submit">
+</form>
+{%endif%}
+{% if not user.is_authenticated %}
+댓글은 로그인 후 작성 가능합니다.
+{%endif%}
+<hr>
+{% for comment in comments %}
+<div class="comment">
+    <div class="first_comment">
+        {{comment.author}} : {{comment.body}}
+        {% if user == comment.author %}
+        <a id="delete" href="">삭제</a>
+        {%endif%}
+    </div>
+    {% for re_comment in re_comments %}
+    {% if comment == re_comment.comment_id %}
+    <div class="recomment">
+        ㄴ{{re_comment.author}} : {{re_comment.body}}
+        {% if user == re_comment.author %}
+        <a id="delete" href="">삭제</a>
+        {%endif%}
+    </div>
+    {% endif %}
+    {% endfor %}
+</div>
+{% if user.is_authenticated %}
+<div id="recomment">
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form}}
+        <button type="submit">대댓글쓰기</button>
+    </form>
+</div>
+{%endif%}
+<br>
+
+</body>
+{% endblock %}
