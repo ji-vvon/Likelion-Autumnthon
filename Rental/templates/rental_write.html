@@ -1,0 +1,194 @@
+<!-- {% extends 'base.html' %}
+{% block content %} -->
+<head>
+    <!-- <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/rental_search_result.css' %}"
+      /> -->
+      <style>
+          body {
+            text-align: center;
+            font-family: sans-serif;
+            margin:10%;
+        }
+
+        .container {
+            border:2px solid rgb(167, 46, 42);
+            border-radius: 30px;
+            padding: 30px 0px;
+            margin: 0px 10%;
+        }
+
+        h1 {
+    margin: 30px 5px;
+}
+
+h3 {
+    font-size: 30px;
+}
+
+/* main */
+#make_challenge {
+    background-color: #4ccd97;
+    color: white;
+    margin: 30px;
+    padding: 15px 40px;
+    border-radius: 20px;
+    font-size: 20px;
+}
+
+.content {
+    margin: 0 auto;
+    width: 600px;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    margin-bottom: 10px;
+    padding-left: 30px;
+    border: 1px solid #4ccd97;
+    border-radius: 10px;
+}
+
+.record {
+    border-radius: 5px;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(54, 54, 54);
+    padding: 10px;
+    margin: 0px 15px;
+}
+
+#delete {
+    margin-right: 10px;
+}
+/* detail */
+
+#challenge_clear_btn {
+    background-color: #4ccd97;
+    color: white;
+    border-radius: 30px;
+    padding: 20px 40px;
+    border: none;
+    font-size: 20px;
+}
+.a {
+    display: flex;
+    margin: 0 auto;
+    width: 800px;
+    justify-content: center;
+    align-items: center;
+}
+
+.total_score {
+    margin-top: 5%;
+    font-size: 30px;
+    font-weight: bold;
+    color: #4ccd97;
+}
+
+.progress_bar {
+    margin-top: 5%;
+    width: 600px;
+    height: 50px;
+    background-color: rgb(190, 190, 190);
+    border-radius: 8px;
+}
+
+.progress_value {
+    height: 50px;
+    background-color: #4ccd97;
+    border-radius: 8px;
+}
+
+/* write */
+
+.challenge_input_container {
+    margin-left: 40%;
+    text-align: left;
+    width: 50%;
+    margin-bottom: 20px;
+}
+
+.challenge_input_title {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.create_challenge {
+    background-color: white;
+    border: 1px solid lightgray;
+    border-radius: 8px;
+    width: 40%;
+    padding: 10px;
+    margin-bottom: 5px;
+    font-size: 15px;
+}
+
+#confirmBtn {
+    border: none;
+    background-color: rgb(167, 46, 42);
+    color: white;
+    border-radius: 8px;
+    padding: 10px 25px;
+}
+
+form {
+    margin-top: 50px;
+}
+    </style>
+</head>
+  
+<body>
+    <div class="container">
+    <h1>책 등록하기</h1>
+    <form action="" method="post" enctype="multipart/form-data">
+        <!-- {%csrf_token%}  -->
+        <div class="challenge_input_container">
+            <div class="create_plan_input_title">작성자</div>
+            <input type="text" class="create_challenge" placeholder="책 제목" value="홍길동" disabled/>
+            
+        </div>
+        <div class="challenge_input_container">
+            <div class="challenge_input_title">제목</div>
+            <input type="text" class="create_challenge" placeholder="책 제목" name="title"/>
+        </div>
+        <div class="challenge_input_container">저자
+            <div class="create_plan_input_title"></div>
+            <input
+                type="text"
+                class="create_challenge"
+                placeholder="저자"
+                name=""
+            />
+        </div>
+        <div class="challenge_input_container">
+            <div class="create_plan_input_title">출판사</div>
+            <input
+                type="text"
+                class="create_challenge"
+                placeholder="출판사"
+                name=""
+            />
+        </div>
+        <div class="challenge_input_container">
+            <div class="create_plan_input_title">카테고리</div>
+            <div>
+                <span id="hobbyRadio"><input type="radio" name="category" value="IT">IT</span>   
+                <span id="hobbyRadio"><input type="radio" name="category" value="인문">인문</span>
+                <span id="hobbyRadio"><input type="radio" name="category" value="사회">사회</span>                
+                <span id="hobbyRadio"><input type="radio" name="category" value="과학">과학</span>
+                <span id="hobbyRadio"><input type="radio" name="category" value="예술">예술</span>
+            </div>
+        </div>
+        <div class="challenge_input_container">
+            <div class="challenge_input_title">이미지</div>
+            <input type="file" class="create_challenge" name="image"/>
+        </div>
+        <button type ="submit" id="confirmBtn">작성하기</button>
+    </form>
+</div>
+</body>
+  
+  <!-- {% endblock %} -->
