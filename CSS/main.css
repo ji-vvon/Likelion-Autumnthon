@@ -1,6 +1,7 @@
 body {
     margin: 0%;
     -ms-overflow-style: none;
+    font-family: Nanum Gothic;
 }
 
 ::-webkit-scrollbar { 
@@ -135,7 +136,8 @@ body {
 #search {
     width: 100%;
     height: 15vh;
-    background-color: rgb(255, 118, 64);
+    /* background-color: rgb(255, 118, 64); */
+    background: linear-gradient(to right, rgb(218, 68, 8), rgb(255, 118, 64));
     text-align: center;
     line-height: 15vh;
 }
@@ -147,9 +149,13 @@ body {
     border: 0;
     border-bottom: solid 3px;
     border-color: white;
-    background-color: rgb(255, 118, 64);
+    background-color: rgb(255, 118, 64, 0);
     color: white;
     padding-left: 20px;
+}
+
+#search_input::placeholder {
+    color: white;
 }
 
 #search_submit {
@@ -158,7 +164,7 @@ body {
     font-size: 20px;
     margin-left: 1vw;
     color: white;
-    background-color: rgb(255, 118, 64);
+    background-color: rgb(255, 118, 64, 0);
     border: solid 3px;
     border-color: white;
 }
@@ -222,7 +228,7 @@ body {
     line-height: 10vh;
     text-align: center;
     border-bottom: solid 3px;
-    border-color: rgb(255, 118, 64);
+    border-color: rgb(255, 118, 64, 0);
     transition: all .2s ease-in-out;
 }
 
@@ -242,7 +248,8 @@ body {
     width: 100%;
     height: 45vh;
     margin: 0%;
-    background-color: rgb(255, 118, 64);
+    /* background-color: rgb(255, 118, 64); */
+    background: linear-gradient(to right, rgb(218, 68, 8), rgb(255, 118, 64));
 }
 
 #book_container {
@@ -260,7 +267,7 @@ body {
 }
 
 #recommend_category {
-    background-color: rgb(255, 118, 64);
+    background-color: rgb(255, 118, 64, 0);
     margin-left: 3vw;
     width: 15%;
     height: 100%;
