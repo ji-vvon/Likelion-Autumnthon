@@ -1,10 +1,10 @@
 from django import forms
-from .models import Book, Comment, Message
+from .models import Solution, Comment
 
-class BookForm(forms.ModelForm):
+class SolutionForm(forms.ModelForm):
     class Meta:
-        model = Book
-        fields = ['title', 'author', 'content', 'img']
+        model = Solution
+        fields = ['title', 'writer', 'content', 'img']
 
 class CommentForm(forms.ModelForm):
     class Meta:

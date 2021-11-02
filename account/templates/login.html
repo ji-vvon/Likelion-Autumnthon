@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<head>
+    <style>
+        input,
+        textarea {
+            font-family: 'Alfa Slab One', 'Black Han Sans', sans-serif;
+            width: 50%;
+            border: none;
+            background-color:rgb(122, 136, 197);
+            border-radius: 20px;
+            padding: 20px;
+            font-size: 18px;
+            color: white;
+        }
+
+        .body {
+            margin: 0% 30%;
+            font-family: 'Alfa Slab One', 'Black Han Sans', sans-serif;
+            color: rgb(44, 44, 44);
+        }
+
+        .button {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        button {
+            border-radius: 30px;
+            font-size: 20px;
+            color: rgb(56, 56, 56);
+            font-family: 'Alfa Slab One', 'Black Han Sans', sans-serif;
+            padding: 10px 30px;
+            background-color: rgb(122, 136, 197);
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+
+<body>
+    <br>
+    <h1>Login</h1>
+    <br>
+    <form action="{% url 'login' %}" method="post">
+        {%csrf_token%}
+        <div class="body">
+            <h2>{{form.as_p}}</h2>
+        </div>
+        <div class="button">
+            <button id="submit_btn" type="submit">login</button>
+        </div>
+    </form>
+</body>
+{% endblock %}

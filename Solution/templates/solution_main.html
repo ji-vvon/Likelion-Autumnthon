@@ -1,81 +1,96 @@
-<!-- {% extends 'base.html' %}
-{% block content %} -->
+{% extends 'base.html' %}
+
+{% block content %}
 <head>
-    <!-- <link
-      rel="stylesheet"
-      type="text/css"
-      href="{% static 'css/rental_search_result.css' %}"
-      /> -->
       <style>
           body {
-            text-align: left;
-            font-family: sans-serif;
-            margin:10%;
-        }
+              text-align: center;
+          }
+            .body {
+                margin: 0 10%;
+                display: inline-block;
+                color: rgb(0, 0, 0);
+            }
 
-        hr {
-            margin:0 8%;
-        }
+            h2 {
+                font-family: 'Pretendard-Regular';
+            }
 
-        h1 {
-            text-align:  center;
-        }
+            .content {
+                border:2px solid rgb(122, 136, 197);
+                margin: 30px 20px;
+                padding: 30px;
+                width: 350px;
+                height: 450px;
+                border-radius: 10%;
+                float: left;
 
-        .book_container {
-            margin : 10px 0;
-        }
+            }
 
-        img {
-            margin:0 3%;
-            width:150px;
-            height: 180px;
-            float: left;
-        }
+            .sub {
+                font-family: 'Noto Sans KR', sans-serif;
+            }
 
-        .book_container_content {
-        margin: 0 10%;
-        margin-bottom:30px;
-        }
+            .page {
+                display: inline-block;
+                font-size: 20px;
+            }
 
-        #book_detail_btn {
-        width: 100px;
-        height: 40px;
-        color: #000000;
-        background-color: white;
-        border: 2px solid rgb(167, 46, 42);
-        border-radius: 8px;
-        font-weight: bold;
-        }
+            img {
+                height: 250px;
+                width: 180px;
+                object-fit: fill;
+
+            }
       </style>
   </head>
   
   <body>
-      <h1>Solution</h1>
-  <hr>
-  <div class="book_container">
-        <div class="book_container_content">
-            <a href=""><h2>질문....</h2></a>
-            <h4>작성자</h4>
-                내용 ....(간략히 보여줌)<br><br>
+  <h1 class="title1">Solution</h1>
+ 
+  <div class="welcome"><a href="{%url 'new' %}">Write</a></div>
+ 
+    <br>
+    <form action="{% url 'search' %}" method="post">
+        {% csrf_token %}
+        <input id="search" type="search" placeholder="Search" aria-label="Search" name="find" value="{{find}}">
+        <button class="btn btn-outline-success" type="submit">🔎Search</button>
+    </form>
+
+    <div class="body">
+        {% for content in posts %}
+        <div class="content">
+            <h2>{{content.title}}</h2>
+            <div class="sub">
+                {{content.author}}<br><br>
+                {% if content.img %}
+                <a id="more" href="{%url 'detail' content.id %}"><img src="{{content.image_thumbnail.url}}"></a>
+                {% endif %}
+                <br>
+                ₩{{content.price}}
+            </div>
         </div>
+        {% endfor %}
     </div>
-    <hr>
-    <div class="book_container">
-        <div class="book_container_content">
-            <a href=""><h2>질문....</h2></a>
-            <h4>작성자</h4>
-                내용 ....(간략히 보여줌)<br><br>
-        </div>
+
+    <br>
+    <div class="page">
+        {% if posts.has_previous %}
+        <a href="?page=1">1</a>
+        <a href="?page={{posts.previous_page_number}}">◀</a>
+        {% endif %}
+
+        <span>{{posts.number}}</span>
+        <span>of</span>
+        <span>{{posts.paginator.num_pages}}</span>
+
+        {%if posts.has_next%}
+        <a href="?page={{posts.next_page_number}}">▶</a>
+        <a href="?page={{posts.paginator.num_pages}}">{{posts.paginator.num_pages}}</a>
+        {% endif %}
     </div>
-    <hr>
-    <div class="book_container">
-        <div class="book_container_content">
-            <a href=""><h2>질문....</h2></a>
-            <h4>작성자</h4>
-                내용 ....(간략히 보여줌)<br><br>
-        </div>
-    </div>
-    <hr>
+
+    <br>
   </body>
   
-  <!-- {% endblock %} -->
+{% endblock %}

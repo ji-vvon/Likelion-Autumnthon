@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<style>
+    .body {
+        margin: 0 10%;
+        display: inline-block;
+        color: rgb(0, 0, 0);
+    }
+
+    h2 {
+        font-family: 'Pretendard-Regular';
+    }
+
+    .content {
+        border:2px solid rgb(122, 136, 197);
+        margin: 30px 20px;
+        padding: 30px;
+        width: 350px;
+        height: 450px;
+        border-radius: 10%;
+        float: left;
+
+    }
+
+    .sub {
+        font-family: 'Noto Sans KR', sans-serif;
+    }
+
+    .page {
+        display: inline-block;
+        font-size: 20px;
+    }
+
+    img {
+        height: 250px;
+        width: 180px;
+        object-fit: fill;
+
+    }
+</style>
+<body>
+<h1 class="title1">SEARCH RESULT</h1>
+{% if not data %}
+<h1>NO RESULT</h1>
+{% else %}
+<br>
+<br>
+<!-- {% for post in data.all %}
+<div class="t">
+    {%if post.img %}
+    <img src="{{post.image_thumbnail.url}}">
+    {%endif%}
+    <div class="title">
+        {{post.title}}
+    </div>
+    <br>
+    <a href="{%url 'detail' post.id %}">...more</a>
+</div> -->
+
+<div class="body">
+    {% for content in data %}
+    <div class="content">
+        <h2>{{content.title}}</h2>
+        <div class="sub">
+            {{content.author}}<br><br>
+            {% if content.img %}
+            <a id="more" href="{%url 'detail' content.id %}"><img src="{{content.image_thumbnail.url}}"></a>
+            {% endif %}
+            <br>
+            ₩{{content.price}}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+<br>
+{% endfor %}
+{% endif %}
+{% endblock %}
+</body>

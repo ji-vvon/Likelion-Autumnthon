@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<head>
+    <style>
+        .body {
+            font-family: 'Alfa Slab One', sans-serif;
+            color:rgb(44, 44, 44);
+            margin: 5% 15%;
+            text-align: left;
+        }
+
+        button {
+            border-radius: 30px;
+            font-size: 20px;
+            color: rgb(255, 255, 255);
+            font-family: 'Alfa Slab One', sans-serif;
+            padding: 10px 30px;
+            background-color: rgb(122, 136, 197);
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>signup</h1>
+    <form action="{% url 'signup' %}" method="post">
+        {%csrf_token%}
+        <div class="body">
+            <h4>{{form.as_p|linebreaks}}</h4>
+        </div>
+        <button id="submit_btn" type="submit">submit</button>
+    </form>
+</body>
+{% endblock %}

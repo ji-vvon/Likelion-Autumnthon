@@ -1,4 +1,5 @@
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -12,9 +13,9 @@ SECRET_KEY = 'django-insecure-*)xmw&ef_29wbj*fjeaue9w_ut^z(ge_8^8p5!r%a*45*u$4!1
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+ALLOWED_HOSTS = ['*']
 
-ALLOWED_HOSTS = []
-
+AUTH_USER_MODEL = 'account.CustomUser'
 
 # Application definition
 
@@ -27,7 +28,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Rental',
     'Solution',
-    'User',
+    'account',
 ]
 
 MIDDLEWARE = [
@@ -45,7 +46,7 @@ ROOT_URLCONF = 'bookproject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+         'DIRS': ['bookproject/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
