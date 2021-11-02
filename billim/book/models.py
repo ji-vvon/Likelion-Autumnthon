@@ -6,7 +6,7 @@ status_select = (
     ('대여중', '대여중'),
 )
 
-class Register(models.Model):
+class MajorBook(models.Model):
     title = models.CharField(max_length=30)
     author = models.CharField(max_length=30)
     publisher = models.CharField(max_length=30)
@@ -20,4 +20,8 @@ class Register(models.Model):
     status = models.CharField(max_length=10, choices=status_select, default='대여가능')
 
     def __str__(self):
-        return self.title
+        return f'{self.title}({self.status})'
+        # return f'{self.title}'
+
+    def get_absolute_url(self):
+        return f'/book/{self.pk}'
