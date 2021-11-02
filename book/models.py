@@ -16,21 +16,27 @@ category_select = (
 )
 
 class MajorBook(models.Model):
-    title = models.CharField(max_length=30)
-    author = models.CharField(max_length=30)
-    publisher = models.CharField(max_length=30)
-    pub_date = models.DateField()
-    category =  models.TextField(choices=category_select)
-    info_text = models.TextField()
-    image = models.ImageField(upload_to="book/", blank = True, null = True)
-    image_thumbnail = ImageSpecField(source = 'img', processors=[ResizeToFill(350,500)])
+    title = models.CharField(max_length=30) #책 제목
+    author = models.CharField(max_length=30) #저자
+    publisher = models.CharField(max_length=30) #출판사
+    # pub_date = models.DateTimeField(blank=True, null=True)  #발행일
+    category =  models.TextField(choices=category_select, default="IT") #카테고리
+    info_text = models.TextField() #내용
+    img = models.ImageField(upload_to="book/", blank = True, null = True)
+    image_thumbnail = ImageSpecField(source = 'img', processors=[ResizeToFill(200,250)])
     # uploader = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
-    upload_date = models.DateTimeField(auto_now_add=True)
+    # upload_date = models.DateTimeField(blank=True, null=True) 
     status = models.CharField(max_length=10, choices=status_select, default='대여가능')
 
-    def __str__(self):
-        return f'{self.title}({self.status})'
-        # return f'{self.title}'
+    # def __str__(self):
+    #     return f'{self.title}({self.status})'
+    #     # return f'{self.title}'
 
-    def get_absolute_url(self):
-        return f'/book/{self.pk}'
+    # def get_absolute_url(self):
+    #     return f'/book/{self.pk}'
+    
+    def __str__(self):
+          return self.title
+
+    def summary(self):
+        return self.content[:50]

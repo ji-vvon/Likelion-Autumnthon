@@ -6,18 +6,26 @@
 
 <body>
     <div class="book_container">
-        <div class="book_container_content">
+       
             <h2>{{book.title}}</h2><hr>
-        
-                저자: 윤성우<br>
-                출판사 : 오렌지미디어<br>
-                카테고리 : IT<br><br>
-                상태 : 대여가능 <br><br>
+            {% if book.img %}
+            <div class="div1">
+                <img src="{{book.img.url}}" alt="image" width="400" height="400">
+            </div>
+            {% endif %}
+            <div class="div2">
+                저자: {{book.author}}<br>
+                출판사 : {{book.publisher}}<br>
+                카테고리 : {{book.category}}<br><br>
+                책 상태 : {{book.info_text}}<br><br>
+              
+                올린 사람 : 홍길동<br><br>
+                <b>{{book.status}}</b> <br><br>
                 <a href="">
                     <button id="book_rental_btn">대여 신청</button>
                 </a>
-        </div>
-</div>
+            </div>
+    </div>
 </body>
   
 {% endblock %}

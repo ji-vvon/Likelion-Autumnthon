@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.core.paginator import Paginator
 from django.utils import timezone
 from .models import MajorBook
 from .forms import BookForm
@@ -8,12 +9,15 @@ def main(request):
 
 # 책 목록 페이지
 def book_list(request):
-    books = MajorBook.objects.all().order_by('-pk')
-    return render(request, 'rental_main.html', {'books':books})
+    books = MajorBook.objects.all().order_by('-id')
+    paginator = Paginator(books, 8)
+    page = request.GET.get('page')
+    posts = paginator.get_page(page) 
+    return render(request, 'rental_main.html', {'books' : books, 'posts' : posts})
 
 # 책 상세 페이지
-def detail(request, pk):
-    book = MajorBook.objects.get(pk=pk)
+def detail(request, id):
+    book = MajorBook.objects.get(pk=id)
     return render(request, 'rental_detail.html', {'book':book})
 
 def new(request):
@@ -21,7 +25,8 @@ def new(request):
         form = BookForm(request.POST, request.FILES)
         if form.is_valid():
             post = form.save(commit = False)
-            post.save()
+            post.upload_date = timezone.now()
+            post.save()    
             return redirect('detail', post.id)
         return redirect('book_list')
     else:  #글을 쓰기위해 들어갔을 때

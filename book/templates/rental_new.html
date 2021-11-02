@@ -5,15 +5,15 @@
 </head>
 
 <body>
-    <h1>책 등록하기</h1>
+    <h2>책 등록하기</h2>
     <hr>
     <div class="container">
     <form id="rental_new_form" action="{%url 'new' %}" method="post" enctype="multipart/form-data">
         {%csrf_token%} 
-        <h2>{{form.as_p}}</h2>
+        <h3>{{form.as_p}}</h3>
         <button type ="submit" id="submit">등록하기</button>
     </form>
 </div>
 </body>
   
-  {% endblock %}
+{% endblock %}

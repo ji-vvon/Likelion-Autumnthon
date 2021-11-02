@@ -8,21 +8,22 @@
     <h1>책 대여하기</h1> 
 
     <div class="body">
-        {% for content in books %}
+        {% for content in posts %}
         <div class="content">
             <h2>{{content.title}}</h2>
-            <!-- <div class="sub">
+            <div class="sub">
                 {{content.author}} | {{content.publisher}}<br><br>
                 {% if content.img %}
                 <a id="more" href="{%url 'detail' content.id %}"><img src="{{content.image_thumbnail.url}}"></a>
                 {% endif %}
                 <br>
             </div>
-        </div> -->
+        </div>
         {% endfor %}
     </div>
 <br>
-<!-- <div class="page">
+
+<div class="page">
     {% if posts.has_previous %}
     <a href="?page=1">1</a>
     <a href="?page={{posts.previous_page_number}}">◀</a>
@@ -36,6 +37,6 @@
     <a href="?page={{posts.next_page_number}}">▶</a>
     <a href="?page={{posts.paginator.num_pages}}">{{posts.paginator.num_pages}}</a>
     {% endif %}
-</div> -->
+</div>
 </body>
 {% endblock %}
