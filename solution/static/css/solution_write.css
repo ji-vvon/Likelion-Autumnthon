@@ -1,0 +1,47 @@
+.container {
+    text-align: center;
+    margin: 5% 10%;
+}
+
+h1 {
+    text-align: center;
+    margin-top:80px;
+}
+
+h2{
+    color:rgb(58, 58, 66);
+    font-family: sans-serif;
+    text-align: right;
+    margin-top:30px;
+    margin-right: 25%;
+}
+
+hr {
+    border: 1px solid rgb(61, 93, 153);
+    margin:0 15%;
+    margin-top:70px;
+}
+
+input,
+textarea, 
+select {
+    font-family: sans-serif;
+    width: 50%;
+    border: none;
+    background-color: rgb(226, 226, 226);
+    border-radius: 20px;
+    padding: 20px;
+    margin: 0px 50px;
+    font-size: 18px;
+    color: rgb(0, 0, 0);
+}
+
+#submit {
+    border: 2px solid rgb(61, 93, 153);
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    border-radius: 8px;
+    padding: 10px 25px;
+    margin-bottom :20px;
+}

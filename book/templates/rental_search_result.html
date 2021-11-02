@@ -1,47 +1,10 @@
-<!-- {% extends 'base.html' %}
-{% block content %} -->
+{% extends 'base.html' %}
+{% block content %}
 <head>
-    <!-- <link
-      rel="stylesheet"
-      type="text/css"
-      href="{% static 'css/rental_search_result.css' %}"
-      /> -->
-      <style>
-          body {
-            text-align: left;
-            font-family: sans-serif;
-            margin:10%;
-        }
+    <link rel="stylesheet" href="/static/css/rental_search_result.css" />
+</head>
 
-        .book_container {
-            margin : 10px 0;
-        }
-
-        img {
-            margin:0 3%;
-            width:150px;
-            height: 180px;
-            float: left;
-        }
-
-        .book_container_content {
-        margin: 0 10%;
-        margin-bottom:30px;
-        }
-
-        #book_detail_btn {
-        width: 100px;
-        height: 40px;
-        color: #000000;
-        background-color: white;
-        border: 2px solid rgb(167, 46, 42);
-        border-radius: 8px;
-        font-weight: bold;
-        }
-      </style>
-  </head>
-  
-  <body>
+<body>
   도서 <b>3</b>건
   <hr>
   <div class="book_container">
@@ -86,6 +49,5 @@
       </div>
 </div>
 <hr>
-  </body>
-  
-  <!-- {% endblock %} -->
+</body>
+{% endblock %}

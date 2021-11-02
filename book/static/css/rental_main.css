@@ -1,0 +1,31 @@
+body {
+    text-align: center;
+}
+ .body {
+    margin: 0 10%;
+    display: inline-block;
+    color: rgb(0, 0, 0);
+}
+
+h2 {
+    font-family: sans-serif;
+}
+
+.content {
+    border:2px solid rgb(167, 46, 42);
+    margin: 15px 10px;
+    padding: 10px;
+    width: 300px;
+    height: 400px;
+    border-radius: 10%;
+    float: left;
+}
+
+.sub {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.page {
+    display: inline-block;
+    font-size: 20px;
+}

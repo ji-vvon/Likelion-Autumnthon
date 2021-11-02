@@ -2,16 +2,9 @@
 
 {% block content %}
 <head>
-      <style>
-        body {
-            text-align: center;
-        } 
-        
-     
-      </style>
-  </head>
-  
-  <body>
+    <link rel="stylesheet" href="/static/css/solution_main.css" />
+</head>
+<body>
   <h1>Solution</h1> 
     <br>
     <form action="{% url 'solution_search' %}" method="post">
@@ -50,6 +43,6 @@
     </div>
 
     <br>
-  </body>
+</body>
   
 {% endblock %}
