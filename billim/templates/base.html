@@ -61,9 +61,13 @@
                         책 등록하기
                     </div>
                 </a>
+                {% if user.is_authenticated %}
                 <div id="enroll_2" class="enroll_in">
+                <a href="{% url 'mybook' %}">
                     내가 등록한 책
                 </div>
+                </a>
+                {% endif %}
             </div>
             <div id="borrow" class="header_specific_in">
                 <a href="{% url 'book_list' %}">
@@ -71,9 +75,11 @@
                     책 대여하기
                     </div>
                 </a>
+                {% if user.is_authenticated %}
                 <div id="borrow_2" class="borrow_in">
                     내가 대여중인 책
                 </div>
+                {% endif %}
                 <div id="borrow_3" class="borrow_in">
                     책 요청하기
                 </div>

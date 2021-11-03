@@ -16,6 +16,16 @@ def book_list(request):
     posts = paginator.get_page(page) 
     return render(request, 'rental_main.html', {'books' : books, 'posts' : posts})
 
+# 내가 등록한 책 목록
+def mybook(request):
+    me = request.user
+    books = MajorBook.objects.all().filter(uploader=me).order_by('-id')
+    paginator = Paginator(books, 8)
+    page = request.GET.get('page')
+    posts = paginator.get_page(page) 
+    return render(request, 'mybook.html', {'books': books, 'posts':posts})
+
+
 # 책 상세 페이지
 def detail(request, pk):
     book = MajorBook.objects.get(pk=pk)
