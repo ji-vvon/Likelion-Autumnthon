@@ -1,31 +1,28 @@
-{% extends 'base.html' %}
-{% block content %}
+{% extends 'base.html' %} {% block content %}
 <head>
-    <link rel="stylesheet" href="/static/css/rental_main.css" />
+  <link rel="stylesheet" href="/static/css/rental_main.css" />
 </head>
 
-<body> 
-    <h1>책 대여하기</h1> 
+<body>
+  <h1>책 대여하기</h1>
 
-    <div class="body">
-        {% for content in posts %}
-            {% if content.status == '대여 가능' %}
-                <div class="content">
-                    <h2>{{content.title}}</h2>
-                    <div class="sub">
-                        {{content.author}} | {{content.publisher}}<br><br>
-                        {% if content.img %}
-                        <a id="more" href="{%url 'detail' content.id %}"><img src="{{content.image_thumbnail.url}}"></a>
-                        {% endif %}
-                        <br>
-                    </div>
-                </div>
-            {% endif %}
-        {% endfor %}
+  <div class="body">
+    {% for content in posts %} {% if content.status == '대여 가능' %}
+    <div class="content">
+      <h2><a href="{%url 'detail' content.id %}">{{content.title}}</a></h2>
+      <div class="sub">
+        {{content.author}} | {{content.publisher}}<br /><br />
+        {% if content.img %}
+        <a id="more"><img src="{{content.image_thumbnail.url}}" /></a>
+        {% endif %}
+        <br />
+      </div>
     </div>
-<br>
+    {% endif %} {% endfor %}
+  </div>
+  <br />
 
-<div class="page">
+  <div class="page">
     {% if posts.has_previous %}
     <a href="?page=1">1</a>
     <a href="?page={{posts.previous_page_number}}">◀</a>
@@ -37,16 +34,16 @@
 
     {%if posts.has_next%}
     <a href="?page={{posts.next_page_number}}">▶</a>
-    <a href="?page={{posts.paginator.num_pages}}">{{posts.paginator.num_pages}}</a>
+    <a href="?page={{posts.paginator.num_pages}}"
+      >{{posts.paginator.num_pages}}</a
+    >
     {% endif %}
-</div>
+  </div>
 
-{% if messages %}
-    {% for message in messages %}
-        {% if message.tags %}
-            <script>alert("{{ message }}")</script>
-        {% endif %}
-    {% endfor %}
-{% endif %}
+  {% if messages %} {% for message in messages %} {% if message.tags %}
+  <script>
+    alert("{{ message }}");
+  </script>
+  {% endif %} {% endfor %} {% endif %}
 </body>
 {% endblock %}

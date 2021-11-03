@@ -21,12 +21,22 @@
       올린 사람 : {{book.uploader}}<br />
       올린 날짜 : {{book.upload_date | date:"20y-m-d h:m"}}<br /><br />
       <b>{{book.status}}</b> <br /><br />
+
+      {% if user.is_authenticated %}
       <a href="{% url 'rental' book.id %}">
         <button type="submit" id="book_rental_btn">대여 신청</button>
-        <br /><br />
-        <a href="{% url 'edit' book.pk %}">수정하기</a>
-        <a href="{% url 'delete' book.pk %}">삭제하기</a>
       </a>
+      {% else %}
+      <button onclick="location.href='{%url 'account:login'%}'" id="book_rental_btn">
+        대여 신청
+      </button>
+      {% endif %}
+      <br /><br />
+
+      {% if book.uploader == user %}
+      <a href="{% url 'edit' book.pk %}">수정하기</a>
+      <a href="{% url 'delete' book.pk %}">삭제하기</a>
+      {% endif %}
     </div>
   </div>
 </body>

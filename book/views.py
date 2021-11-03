@@ -62,7 +62,7 @@ def delete(request, pk):
 def rental(request, id):
     rental_book=MajorBook.objects.get(pk=id)
     rental_status=rental_book.status #대여여부
-
+    
     if rental_status == '대여 가능':
         rental_book.status = '대여중'
         rental_book.save()

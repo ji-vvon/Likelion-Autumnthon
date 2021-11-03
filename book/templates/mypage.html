@@ -1,6 +1,6 @@
 {% extends 'base.html' %} {% block content %}
-<h1>마이페이지</h1>
 <p>{{request.user.username}}님, 좋은 하루 되세요</p>
+<p>이메일 : {{request.user.email}}</p>
 <hr />
 <br />
 
