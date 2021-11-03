@@ -6,6 +6,7 @@ class BookForm(forms.ModelForm):
         model = MajorBook
         fields = ['title', 'author', 'publisher', 'pub_date', 'category', 'img', 'info_text', 'status']
 
+
 # class BorrowForm(forms.ModelForm):
 #     class Meta:
 #         model = BorrowBook

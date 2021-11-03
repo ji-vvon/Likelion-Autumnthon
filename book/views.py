@@ -51,7 +51,7 @@ def update(request, pk):
     update_book.info_text = request.POST['info_text']
     update_book.status = request.POST['status']
     update_book.save()
-    return redirect('/detail/'+int(update_book.pk), {'book':update_book})
+    return redirect('detail', update_book.pk)
 
 # 삭제
 def delete(request, pk):
@@ -72,9 +72,9 @@ def rental(request, id):
     #     messages.success(request, '대여가 불가능한 책입니다!')
     #     return redirect('book_list')
 
-
 # 마이페이지
 def mypage(request):
     me = request.user
     books = MajorBook.objects.all().filter(uploader=me).order_by('-id')
     return render(request, 'mypage.html', {'books': books})
+

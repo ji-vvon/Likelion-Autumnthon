@@ -19,7 +19,7 @@
       카테고리 : {{book.category}}<br /><br />
       책 상태 : {{book.info_text}}<br /><br />
       올린 사람 : {{book.uploader}}<br />
-      올린 날짜 : {{book.upload_date | date:"20y-m-d h:m"}}<br /><br />
+      올린 날짜 : {{book.upload_date | date:"Y-m-d h:m"}}<br /><br />
       <b>{{book.status}}</b> <br /><br />
 
       {% if user.is_authenticated %}

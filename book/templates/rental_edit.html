@@ -5,17 +5,17 @@
 </head>
 
 <body>
-    <form action="{% url 'new' %}" method="post">
+    <form action="{% url 'update' book.pk %}" method="post">
   {% csrf_token %}
   <p>제목: <input type="text" name="title" value="{{book.title}}" /></p>
   <p>저자: <input type="text" name="author" value="{{book.author}}" /></p>
   <p>출판사: <input type="text" name="publisher" value="{{book.publisher}}"</p><br/>
+  <p>출간일: <input type="text" name="pub_date" value="{{book.pub_date | date:"Y-m-d" }}"</p><br/>
   <p>대여 여부 : <input type="text" name="status" value="{{book.status}}" /></p> 
   {% comment %} status 관련 부분 잘 모르겠음 {% endcomment %}
   책 상태 : <textarea name="info_text" id="" cols="30" rows="10">
-{{book.info_text}}</textarea
-  >
-  <button type="submit">수정</button>
+{{book.info_text}}</textarea>
+  <button type="submit" onclick="location.href='{%url 'new'%}'">수정</button>
 </body>
   
 {% endblock %}
