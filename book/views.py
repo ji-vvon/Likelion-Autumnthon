@@ -3,6 +3,7 @@ from django.core.paginator import Paginator
 from django.utils import timezone
 from .models import MajorBook
 from .forms import BookForm
+from django.contrib import messages
 
 def main(request):
     return render(request, 'main.html')
@@ -53,3 +54,16 @@ def delete(request, pk):
     delete_book = MajorBook.objects.get(pk=pk)
     delete_book.delete()
     return redirect('book_list')
+
+def rental(request, id):
+    rental_book=MajorBook.objects.get(pk=id)
+    rental_status=rental_book.status #대여여부
+
+    if rental_status == '대여 가능':
+        rental_book.status = '대여중'
+        rental_book.save()
+        messages.success(request, '대여가 성공했습니다!')
+        return redirect('book_list')
+    # else:
+    #     messages.success(request, '대여가 불가능한 책입니다!')
+    #     return redirect('book_list')

@@ -21,7 +21,7 @@
               
                 올린 사람 : 홍길동<br><br>
                 <b>{{book.status}}</b> <br><br>
-                <a href="">
+                <a href="{% url 'rental' book.id %}">
                     <button id="book_rental_btn">대여 신청</button>
                 </a>
             </div>

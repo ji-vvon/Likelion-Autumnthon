@@ -9,16 +9,18 @@
 
     <div class="body">
         {% for content in posts %}
-        <div class="content">
-            <h2>{{content.title}}</h2>
-            <div class="sub">
-                {{content.author}} | {{content.publisher}}<br><br>
-                {% if content.img %}
-                <a id="more" href="{%url 'detail' content.id %}"><img src="{{content.image_thumbnail.url}}"></a>
-                {% endif %}
-                <br>
-            </div>
-        </div>
+            {% if content.status == '대여 가능' %}
+                <div class="content">
+                    <h2>{{content.title}}</h2>
+                    <div class="sub">
+                        {{content.author}} | {{content.publisher}}<br><br>
+                        {% if content.img %}
+                        <a id="more" href="{%url 'detail' content.id %}"><img src="{{content.image_thumbnail.url}}"></a>
+                        {% endif %}
+                        <br>
+                    </div>
+                </div>
+            {% endif %}
         {% endfor %}
     </div>
 <br>
@@ -38,5 +40,13 @@
     <a href="?page={{posts.paginator.num_pages}}">{{posts.paginator.num_pages}}</a>
     {% endif %}
 </div>
+
+{% if messages %}
+    {% for message in messages %}
+        {% if message.tags %}
+            <script>alert("{{ message }}")</script>
+        {% endif %}
+    {% endfor %}
+{% endif %}
 </body>
 {% endblock %}
