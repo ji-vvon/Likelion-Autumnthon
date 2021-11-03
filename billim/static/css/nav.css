@@ -133,3 +133,8 @@ body {
     width: 100%;
     background-color: rgb(212, 212, 212);
 }
+
+a {
+    text-decoration: none;
+    color: black;
+}
