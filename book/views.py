@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.core.paginator import Paginator
 from django.utils import timezone
-from .models import MajorBook
+from .models import MajorBook, Category
 from .forms import BookForm
 from django.contrib import messages
 
@@ -17,8 +17,8 @@ def book_list(request):
     return render(request, 'rental_main.html', {'books' : books, 'posts' : posts})
 
 # 책 상세 페이지
-def detail(request, id):
-    book = MajorBook.objects.get(pk=id)
+def detail(request, pk):
+    book = MajorBook.objects.get(pk=pk)
     return render(request, 'rental_detail.html', {'book':book})
 
 def new(request):
@@ -27,6 +27,7 @@ def new(request):
         if form.is_valid():
             post = form.save(commit = False)
             post.upload_date = timezone.now()
+            post.uploader = request.user
             post.save()    
             return redirect('detail', post.id)
         return redirect('book_list')
@@ -39,26 +40,29 @@ def edit(request, pk):
     edit_book = MajorBook.objects.get(pk=pk)
     return render(request, 'rental_edit.html', {'book':edit_book})
 
+# 수정이 안되는 오류 발생
 def update(request, pk):
     update_book = MajorBook.objects.get(pk=pk)
     update_book.title = request.POST['title']
     update_book.author = request.POST['author']
     update_book.publisher = request.POST['publisher']
     update_book.pub_date = request.POST['pub_date']
+    update_book.upload_date = timezone.now()
     update_book.info_text = request.POST['info_text']
     update_book.status = request.POST['status']
     update_book.save()
     return redirect('detail', update_book.pk)
 
+# 삭제
 def delete(request, pk):
     delete_book = MajorBook.objects.get(pk=pk)
     delete_book.delete()
     return redirect('book_list')
 
 def rental(request, id):
-    rental_book=MajorBook.objects.get(pk=id)
+    rental_book = MajorBook.objects.get(pk=id)
     rental_status=rental_book.status #대여여부
-
+    
     if rental_status == '대여 가능':
         rental_book.status = '대여중'
         rental_book.save()
@@ -67,3 +71,34 @@ def rental(request, id):
     # else:
     #     messages.success(request, '대여가 불가능한 책입니다!')
     #     return redirect('book_list')
+
+# 마이페이지
+def mypage(request):
+    me = request.user
+    books = MajorBook.objects.all().filter(uploader=me).order_by('-id')
+    return render(request, 'mypage.html', {'books': books})
+
+def category_page(request, slug):
+    if slug == 'no_category':
+        category = '기타'
+        books = MajorBook.objects.all().filter(category=None).order_by('-id')
+        paginator = Paginator(books, 8)
+        page = request.GET.get('page')
+        posts = paginator.get_page(page)
+    else:
+        category = Category.objects.get(slug=slug)
+        books = MajorBook.objects.filter(category=category).order_by('-id')
+        paginator = Paginator(books, 8)
+        page = request.GET.get('page')
+        posts = paginator.get_page(page)
+    
+    return render(request,
+                  'rental_main.html',
+                  {
+                      'books': books,
+                      'categories': Category.objects.all(),
+                      'no_category_post_count': MajorBook.objects.filter(category=None).count(),
+                      'category': category,
+                      'posts' : posts
+                  }
+                  )

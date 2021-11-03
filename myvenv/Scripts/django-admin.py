@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 #!c:\users\박철현\파일들\멋쟁이사자처럼\단풍톤\billim\myvenv\scripts\python.exe
+=======
+#!c:\users\82109\desktop\단풍톤\maplethon-billim\likelion-maplethon\myvenv\scripts\python.exe
+>>>>>>> back2
 # When the django-admin.py deprecation ends, remove this script.
 import warnings
 
