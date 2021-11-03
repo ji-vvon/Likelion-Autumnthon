@@ -15,9 +15,10 @@
 </head>
 <body>
         <div id="top">
-            <a href="{% url 'main' %}"><div id="top_logo">
+            <a href="{% url 'main' %}">
+                <div id="top_logo">
                 <!-- 빌려주다 -->
-            </div>
+                </div>
             </a>
             <div id="register">
                 {% if not user.is_authenticated %}
@@ -55,17 +56,21 @@
         </div>
         <div id="header_specific">
             <div id="enroll" class="header_specific_in">
-                <div id="enroll_1" class="enroll_in">
-                    <a href="{% url 'new' %}">책 등록하기</a>
-                </div>
+                <a href="{% url 'new' %}">
+                    <div id="enroll_1" class="enroll_in">
+                        책 등록하기
+                    </div>
+                </a>
                 <div id="enroll_2" class="enroll_in">
                     내가 등록한 책
                 </div>
             </div>
             <div id="borrow" class="header_specific_in">
-                <div id="borrow_1" class="borrow_in">
-                    <a href="{% url 'book_list' %}">책 대여하기</a>
-                </div>
+                <a href="{% url 'book_list' %}">
+                    <div id="borrow_1" class="borrow_in">
+                    책 대여하기
+                    </div>
+                </a>
                 <div id="borrow_2" class="borrow_in">
                     내가 대여중인 책
                 </div>
