@@ -9,4 +9,5 @@ urlpatterns = [
     path('update/<int:pk>', update, name="update"),
     path('delete/<int:pk>', delete, name="delete"),
     path('mypage', mypage, name="mypage"),
+    # path('borrow', borrow, name="borrow"),
 ]

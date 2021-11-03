@@ -22,7 +22,7 @@
       올린 날짜 : {{book.upload_date | date:"20y-m-d h:m"}}<br /><br />
       <b>{{book.status}}</b> <br /><br />
       <a href="">
-        <button id="book_rental_btn">대여 신청</button>
+        <button type="submit" id="book_rental_btn" onclick="location.href='{%url 'borrow'%}'">대여 신청</button>
         <br/><br/>
         <a href="{% url 'edit' book.pk %}">수정하기</a>
         <a href="{% url 'delete' book.pk %}">삭제하기</a>

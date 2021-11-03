@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<body>
+    <h2>책 대여하기</h2>
+    <hr>
+    <div class="container">
+    <form id="rental_new_form" action="{%url 'borrow' %}" method="post" enctype="multipart/form-data">
+        {%csrf_token%} 
+        <h3>{{form.as_p}}</h3>
+        <button type ="submit" id="submit">등록하기</button>
+    </form>
+</div>
+</body>
+  
+{% endblock %}

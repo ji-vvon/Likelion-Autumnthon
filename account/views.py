@@ -27,7 +27,7 @@ def login_view(request):
         form=AuthenticationForm()
         return render(request, 'login.html', {'form':form})
 
-def logout(request):
+def logout_view(request):
     auth.logout(request)
     return redirect('main')# <임시> 이후 메인으로 수정 필요
 

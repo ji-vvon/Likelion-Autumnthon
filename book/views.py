@@ -58,6 +58,11 @@ def delete(request, pk):
     delete_book.delete()
     return redirect('book_list')
 
+# # 대여
+# def borrow(request, pk):
+#     borrow_book = MajorBook.objects.get(pk=pk)
+#     return render(request, 'rental_borrow.html', {'book':borrow_book})
+
 # 마이페이지
 def mypage(request):
     me = request.user

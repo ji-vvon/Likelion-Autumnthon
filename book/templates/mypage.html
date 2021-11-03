@@ -8,9 +8,8 @@
 <div class="row">
   <div class="col-12">
     <table>
-      {% for book in books %}
       <thead>
-        <tr onclick="location.href='/book/detail/{{book.pk}}'">
+        <tr>
           <th scope="col">제목</th>
           <th scope="col">저자</th>
           <th scope="col">출판사</th>
@@ -19,7 +18,8 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
+        {% for book in books %}
+        <tr onclick="location.href='/book/detail/{{book.pk}}'">
           <td>{{book.title}}</td>
           <td>{{book.author}}</td>
           <td>{{book.publisher}}</td>
@@ -33,6 +33,5 @@
 </div>
 <hr />
 <h2>내가 대여한 책</h2>
-
 
 {% endblock %}
