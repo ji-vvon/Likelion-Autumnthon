@@ -14,13 +14,18 @@
     <title>빌려주다</title>
 </head>
 <body>
-    <body>
         <div id="top">
-            <div id="top_logo">
+            <a href="{% url 'main' %}"><div id="top_logo">
                 <!-- 빌려주다 -->
             </div>
+            </a>
             <div id="register">
-                회원가입(로그아웃)
+                {% if not user.is_authenticated %}
+                    <a href="{% url 'account:login' %}">로그인</a>
+                    <a href="{% url 'account:signup' %}">회원가입</a>
+                {% else %}
+                    <a href="{% url 'account:logout' %}">로그아웃</a>
+                {% endif %}
             </div>
             <div id="mypage">
                 MYPAGE
@@ -51,7 +56,7 @@
         <div id="header_specific">
             <div id="enroll" class="header_specific_in">
                 <div id="enroll_1" class="enroll_in">
-                    책 등록하기
+                    <a href="{% url 'new' %}">책 등록하기</a>
                 </div>
                 <div id="enroll_2" class="enroll_in">
                     내가 등록한 책
@@ -59,7 +64,7 @@
             </div>
             <div id="borrow" class="header_specific_in">
                 <div id="borrow_1" class="borrow_in">
-                    책 대여하기
+                    <a href="{% url 'book_list' %}">책 대여하기</a>
                 </div>
                 <div id="borrow_2" class="borrow_in">
                     내가 대여중인 책
