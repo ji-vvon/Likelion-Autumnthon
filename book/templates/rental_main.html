@@ -4,8 +4,14 @@
 </head>
 
 <body>
-  <h1>책 대여하기</h1>
+  <h1>책 대여하기{% if category %} - [ {{category}} ]{% endif %}</h1>
 
+  <button type="button" onclick="location.href='/book/'">전체</button>
+  <button type="button" onclick="location.href='/book/category/IT'">IT</button>
+  <button type="button" onclick="location.href='/book/category/인문'">인문</button>
+  <button type="button" onclick="location.href='/book/category/과학'">과학</button>
+  <button type="button" onclick="location.href='/book/category/예술'">예술</button>
+  
   <div class="body">
     {% for content in posts %} {% if content.status == '대여 가능' %}
     <div class="content">
@@ -39,6 +45,8 @@
     >
     {% endif %}
   </div>
+
+
 
   {% if messages %} {% for message in messages %} {% if message.tags %}
   <script>

@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.core.paginator import Paginator
 from django.utils import timezone
-from .models import MajorBook
+from .models import MajorBook, Category
 from .forms import BookForm
 from django.contrib import messages
 
@@ -60,7 +60,7 @@ def delete(request, pk):
     return redirect('book_list')
 
 def rental(request, id):
-    rental_book=MajorBook.objects.get(pk=id)
+    rental_book = MajorBook.objects.get(pk=id)
     rental_status=rental_book.status #대여여부
     
     if rental_status == '대여 가능':
@@ -78,3 +78,27 @@ def mypage(request):
     books = MajorBook.objects.all().filter(uploader=me).order_by('-id')
     return render(request, 'mypage.html', {'books': books})
 
+def category_page(request, slug):
+    if slug == 'no_category':
+        category = '기타'
+        books = MajorBook.objects.all().filter(category=None).order_by('-id')
+        paginator = Paginator(books, 8)
+        page = request.GET.get('page')
+        posts = paginator.get_page(page)
+    else:
+        category = Category.objects.get(slug=slug)
+        books = MajorBook.objects.filter(category=category).order_by('-id')
+        paginator = Paginator(books, 8)
+        page = request.GET.get('page')
+        posts = paginator.get_page(page)
+    
+    return render(request,
+                  'rental_main.html',
+                  {
+                      'books': books,
+                      'categories': Category.objects.all(),
+                      'no_category_post_count': MajorBook.objects.filter(category=None).count(),
+                      'category': category,
+                      'posts' : posts
+                  }
+                  )
