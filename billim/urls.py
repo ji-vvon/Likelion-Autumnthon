@@ -9,5 +9,5 @@ urlpatterns = [
     path('', main, name="main"),
     path('book/', include('book.urls')),
     path('solution/', include('solution.urls')),
-    # path('account/', include('account.urls')),
+    path('account/', include('account.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
