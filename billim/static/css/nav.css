@@ -32,6 +32,7 @@ body {
 
     background-image: URL(../images/logo.png);
     background-size: contain;
+    cursor: pointer;
 }
 
 #top_logo:hover {
@@ -46,6 +47,7 @@ body {
     background-color: white;
     line-height: 15vh;
     text-align: center;
+    cursor: pointer;
 }
 
 #mypage {
@@ -56,6 +58,7 @@ body {
     background-color: white;
     line-height: 15vh;
     text-align: center;
+    cursor: pointer;
 }
 
 #header {
