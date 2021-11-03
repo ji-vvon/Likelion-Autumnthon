@@ -13,9 +13,9 @@
     </div>
     {% endif %}
     <div class="div2">
-      저자: {{book.author}}<br />
-      출판사 : {{book.publisher}}<br />
-      발행일 : {{book.pub_date | date:"20y-m-d"}}<br />
+      저: {{book.author}}<br />
+      출판사: {{book.publisher}}<br />
+      발행: {{book.pub_date | date:"20y-m-d"}}<br />
       카테고리 : 
       {% if book.category %}
         <span>{{ book.category }}</span>
@@ -23,7 +23,7 @@
         <span>기타</span>
       {% endif %}
       <br /><br />
-      책 상태 : {{book.info_text}}<br /><br />
+      "{{book.info_text}}"<br /><br />
       작성자 : {{book.uploader}}<br />
       작성일 : {{book.upload_date | date:"Y-m-d h:m"}}<br /><br />
       <b>{{book.status}}</b> <br /><br />
@@ -40,8 +40,8 @@
       <br /><br />
 
       {% if book.uploader == user %}
-      <a href="{% url 'edit' book.pk %}">수정하기</a>
-      <a href="{% url 'delete' book.pk %}">삭제하기</a>
+      <a href="{% url 'edit' book.pk %}">수정</a>
+      <a href="{% url 'delete' book.pk %}">삭제</a>
       {% endif %}
     </div>
   </div>

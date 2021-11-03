@@ -1,13 +1,13 @@
 {% extends 'base.html' %} {% block content %}
 <p>{{request.user.username}}님, 좋은 하루 되세요</p>
 <p>이메일 : {{request.user.email}}</p>
-<hr />
 <br />
 
 <h2>내가 등록한 책</h2>
 <div class="row">
   <div class="col-12">
     <table>
+      <hr />
       <thead>
         <tr>
           <th scope="col">제목</th>
