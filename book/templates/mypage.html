@@ -1,13 +1,13 @@
 {% extends 'base.html' %} {% block content %}
 <p>{{request.user.username}}님, 좋은 하루 되세요</p>
 <p>이메일 : {{request.user.email}}</p>
-<hr />
 <br />
 
 <h2>내가 등록한 책</h2>
 <div class="row">
   <div class="col-12">
     <table>
+      <hr />
       <thead>
         <tr>
           <th scope="col">제목</th>
@@ -32,6 +32,35 @@
   </div>
 </div>
 <hr />
-<h2>내가 대여한 책</h2>
 
-{% endblock %}
+
+<h2>내가 대여한 책</h2> 
+<div class="row">
+  <div class="col-12">
+    <table>
+      <hr />
+      <thead>
+        <tr>
+          <th scope="col">제목</th>
+          <th scope="col">저자</th>
+          <th scope="col">출판사</th>
+          <th scope="col">작성일</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for borrowed_book in borrowed_books %}
+          {% if borrowed_book.borrow_book.status == '대여중' %}
+          <tr onclick="location.href='/book/detail/{{borrowed_book.borrow_book.pk}}'">
+            <td>{{ borrowed_book.borrow_book.title }}</td>
+            <td>{{ borrowed_book.borrow_book.author }}</td>
+            <td>{{ borrowed_book.borrow_book.publisher }}</td>
+            <td>{{ borrowed_book.borrowed_date }}</td>
+          </tr>
+          {% endif %}
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+  {% endblock %}

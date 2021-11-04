@@ -1,0 +1,54 @@
+{% extends 'base.html' %} {% block content %}
+<head>
+  <link rel="stylesheet" href="/static/css/rental_main.css" />
+</head>
+
+<body>
+  <h1>내가 대여중인 책</h1>
+  <hr>
+
+  <div class="body">
+    {% for content in posts %}
+      {% if content.borrow_book.status == '대여중' %}
+      <div class="content">
+        <h2><a href="{%url 'detail' content.borrow_book.id %}">{{content.borrow_book.title}}</a></h2>
+        <div class="sub">
+          {{content.borrow_book.author}} | {{content.borrow_book.publisher}}<br /><br />
+          {% if content.borrow_book.img %}
+          <a id="more"><img src="{{content.borrow_book.image_thumbnail.url}}" /></a>
+          {% endif %}
+          <br />
+        </div>
+      </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+  <br />
+
+  <div class="page">
+    {% if posts.has_previous %}
+    <a href="?page=1">1</a>
+    <a href="?page={{posts.previous_page_number}}">◀</a>
+    {% endif %}
+
+    <span>{{posts.number}}</span>
+    <span>of</span>
+    <span>{{posts.paginator.num_pages}}</span>
+
+    {%if posts.has_next%}
+    <a href="?page={{posts.next_page_number}}">▶</a>
+    <a href="?page={{posts.paginator.num_pages}}"
+      >{{posts.paginator.num_pages}}</a
+    >
+    {% endif %}
+  </div>
+
+
+
+  {% if messages %} {% for message in messages %} {% if message.tags %}
+  <script>
+    alert("{{ message }}");
+  </script>
+  {% endif %} {% endfor %} {% endif %}
+</body>
+{% endblock %}

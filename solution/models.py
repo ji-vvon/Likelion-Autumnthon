@@ -14,7 +14,7 @@ class Solution(models.Model):
           return self.title
 
     def summary(self):
-        return self.content[:50]
+        return self.content[:15]
 
 class Comment(models.Model):
     solution_id = models.ForeignKey("Solution", on_delete=models.CASCADE, db_column="solution_id")

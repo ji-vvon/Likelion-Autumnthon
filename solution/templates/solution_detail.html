@@ -2,113 +2,82 @@
 {% block content %}
 
 <head>
-    <!-- <link rel="stylesheet" href="/static/css/solution_detail.css" /> -->
-    <style>
-        body {
-    text-align: center;
-    font-family: sans-serif;
-}
-
-.book_container {
-    margin : 10px 0;
-}
-
-img {
-    margin:0 3%;
-    width:200px;
-    height: 240px;
-}
-
-.book_container {
-    padding: 3%;
-    border:3px solid rgb(140, 138, 145);
-    border-radius: 30px;
-}
-
-.book_container_content {
-margin: 0 10%;
-}
-
-#book_rental_btn {
-width: 100px;
-height: 40px;
-color: #000000;
-background-color: white;
-border: 2px solid rgb(167, 46, 42);
-border-radius: 8px;
-font-weight: bold;
-}
-
-.comment {
-    color: rgb(56, 56, 56);
-    text-align: left;
-    margin-left: 20%;
-    font-family: 'Pretendard-Regular';
-}
-
-#submit {
-    width: 100px;
-}
-
-    </style>
+    <link rel="stylesheet" href="/static/css/solution_detail.css" />
+   
+    <!-- <script>
+    function showRecommentForm(obj) {
+        comment_id = obj.getAttribute('value');
+        url = 'create_re_comment/' + {{data.id}} + '/' + comment_id;
+        document.getElementById('re_comment_form' + comment_id).innerHTML = '<form action="${url}" method="post" enctype="multipart/form-data">{% csrf_token %}{{form}}<button type="submit" id="submit">대댓글쓰기</button></form>';
+    }
+</script> -->
 </head>
 
 <body>
-    <div class="book_container">
-        <div class="book_container_content">
-            <h2>{{data.title}}</h2>
-            <hr>
+    <div class="container">
+        <h1>{{data.title}}</h1>
+        <hr>
+        <div class="solution_container_content">
+
+
             {% if data.img %}
-            <img src="{{data.img.url}}"alt="image" width="400" height="400">
-            {%endif%}
-            <b>작성자</b> {{data.writer}} <br><br>
-            <b>내용</b> <br>{{data.content}} <br><br>
+            <img src="{{data.img.url}}" alt="image" width="300" height="400">
+            {%endif%}<br>
+            <br>{{data.content}} <br><br>
             2021-11-02 <br>
-        </div>
-    </div>
-
-
-    <h3>댓글</h3>
-    {% if user.is_authenticated %}
-    <form method="POST" action="{% url 'create_comment' data.id %}" id="comment_form">
-        {% csrf_token %}
-        {{form}}
-        <input type="submit" value="확인" id="submit">
-    </form>
-    {%endif%}
-    {% if not user.is_authenticated %}
-    댓글은 로그인 후 작성 가능합니다.
-    {%endif%}
-    <hr>
-    {% for comment in comments %}
-    <div class="comment">
-        <div class="first_comment">
-            {{comment.writer}} : {{comment.body}}
-            {% if user == comment.writer %}
-            <a id="delete" href="{% url 'delete_comment' data.id comment.id%}">삭제</a>
+            {{data.writer}} <br><br>
+            {% if user == data.writer %}
+            <div class="edit"><a href="{% url 'solution_update' data.id %}">수정하기</a>
+                <a href="{% url 'solution_delete' data.id %}">삭제하기</a>
+            </div>
             {%endif%}
         </div>
-        {% for re_comment in re_comments %}
-        {% if comment == re_comment.comment_id %}
-        <div class="recomment">
-            ㄴ{{re_comment.writer}} : {{re_comment.body}}
-            {% if user == re_comment.writer %}
-            <a id="delete" href="{% url 'delete_comment' data.id re_comment.id%}">삭제</a>
-            {%endif%}
-        </div>
-        {% endif %}
-        {% endfor %}
-    </div>
-    {% if user.is_authenticated %}
-    <div id="recomment">
-        <form action="{% url 'create_re_comment' data.id comment.id%}" method="post" enctype="multipart/form-data">
+        <br>
+        <h2>댓글</h2>
+        <hr>
+        {% if user.is_authenticated %}
+        <form method="POST" action="{% url 'create_comment' data.id %}" id="comment_form">
             {% csrf_token %}
             {{form}}
-            <button type="submit">대댓글쓰기</button>
+            <input type="submit" value="확인" id="submit">
         </form>
+        {%endif%}
+        {% if not user.is_authenticated %}
+        댓글은 로그인 후 작성 가능합니다.
+        {%endif%}
+
+        {% for comment in comments %}
+        <div class="comment">
+            <div class="first_comment">
+                {{comment.writer}} : {{comment.body}}
+                {% if user == comment.writer %}
+                <a id="delete" href="{% url 'delete_comment' data.id comment.id%}">삭제</a>
+                {%endif%}
+            </div>
+            {% for re_comment in re_comments %}
+            {% if comment == re_comment.comment_id %}
+            <div class="recomment">
+                ㄴ{{re_comment.writer}} : {{re_comment.body}}
+                {% if user == re_comment.writer %}
+                <a id="delete" href="{% url 'delete_comment' data.id re_comment.id%}">삭제</a>
+                {%endif%}
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+        {% if user.is_authenticated %}
+        <!-- <span id="recomment" onclick="showRecommentForm(this)" value="{{comment.id}}">답댓글쓰기</span>
+        <div id="re_comment_form{{comment.id}}"></div> -->
+        <form id="recomment_form" action="{% url 'create_re_comment' data.id comment.id%}" method="post"
+            enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form}}
+            <button type="submit" id="submit">답글</button>
+        </form>
+
+        {%endif%}
+        <br>
+        {% endfor %}
     </div>
-    {%endif%}
-    <br>
-    {% endfor %}
 </body>
 {% endblock %}

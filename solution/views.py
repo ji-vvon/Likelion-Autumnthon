@@ -7,7 +7,7 @@ from datetime import date, datetime
 from django.conf import settings
 from django.shortcuts import render
 
-def home(request):
+def solution_home(request):
     contents = Solution.objects.all().order_by('-id')
     paginator = Paginator(contents, 5)
     page = request.GET.get('page')
@@ -43,13 +43,13 @@ def solution_update(request, id):
     post = get_object_or_404(Solution, pk = id)
     if request.method == 'GET':  #수정하려고 들어갔을 때
         form = SolutionForm(instance = post)
-        return render(request, 'update.html', {'form' : form})
+        return render(request, 'solution_update.html', {'form' : form})
     else:   #수정 끝나고 수정 버튼을 눌렀을 때
         form = SolutionForm(request.POST, request.FILES, instance = post)
         if form.is_valid():
             post = form.save(commit = False)
             post.save()
-            return redirect('/solution/detail/' + str(id))
+            return redirect('/solution/solution_detail/' + str(id))
         return redirect('/solution')
 
 def solution_delete(request, id):

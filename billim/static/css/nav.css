@@ -1,7 +1,14 @@
+@font-face {
+    font-family: 'GowunDodum-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunDodum-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 body {
     margin: 0%;
     -ms-overflow-style: none;
-    font-family: Nanum Gothic;
+    /* font-family: Nanum Gothic; */
+    font-family: 'GowunDodum-Regular';
 }
 
 ::-webkit-scrollbar { 
@@ -32,6 +39,7 @@ body {
 
     background-image: URL(../images/logo.png);
     background-size: contain;
+    cursor: pointer;
 }
 
 #top_logo:hover {
@@ -46,6 +54,7 @@ body {
     background-color: white;
     line-height: 15vh;
     text-align: center;
+    cursor: pointer;
 }
 
 #mypage {
@@ -56,6 +65,7 @@ body {
     background-color: white;
     line-height: 15vh;
     text-align: center;
+    cursor: pointer;
 }
 
 #header {
@@ -129,4 +139,9 @@ body {
 .enroll_in:hover, .borrow_in:hover, .solution_in:hover, .billim_in:hover {
     width: 100%;
     background-color: rgb(212, 212, 212);
+}
+
+a {
+    text-decoration: none;
+    color: black;
 }

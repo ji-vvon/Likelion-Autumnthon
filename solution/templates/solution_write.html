@@ -1,19 +1,21 @@
 {% extends 'base.html' %}
 {% block content %}
+
 <head>
     <link rel="stylesheet" href="/static/css/solution_write.css" />
 </head>
-  
+
 <body>
     <h1>솔루션 등록하기</h1>
     <hr>
     <div class="container">
-    <form id="rental_new_form" action="{%url 'solution_new' %}" method="post" enctype="multipart/form-data">
-        {%csrf_token%} 
-        <h2>{{form.as_p}}</h2>
-        <button type ="submit" id="submit">등록하기</button>
-    </form>
-</div>
+        <form action="{%url 'solution_new' %}" method="post" enctype="multipart/form-data">
+            {%csrf_token%}
+            <h2>{{form.as_p}}</h2>
+            <br>
+            <button type="submit" id="submit">등록하기</button>
+        </form>
+    </div>
 </body>
-  
+
 {% endblock %}
