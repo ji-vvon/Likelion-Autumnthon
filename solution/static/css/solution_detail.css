@@ -1,7 +1,6 @@
 body {
     text-align: center;
     font-family: sans-serif;
-    margin:10%;
 }
 
 .book_container {
@@ -32,4 +31,15 @@ background-color: white;
 border: 2px solid rgb(167, 46, 42);
 border-radius: 8px;
 font-weight: bold;
+}
+
+.comment {
+    color: rgb(56, 56, 56);
+    text-align: left;
+    margin-left: 20%;
+    font-family: 'Pretendard-Regular';
+}
+
+#submit {
+    width: 100px;
 }

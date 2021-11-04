@@ -11,35 +11,24 @@
 {% else %}
 <br>
 <br>
-<!-- {% for post in data.all %}
-<div class="t">
-    {%if post.img %}
-    <img src="{{post.image_thumbnail.url}}">
-    {%endif%}
-    <div class="title">
-        {{post.title}}
-    </div>
-    <br>
-    <a href="{%url 'detail' post.id %}">...more</a>
-</div> -->
 
 <div class="body">
     {% for content in data %}
     <div class="content">
-        <h2>{{content.title}}</h2>
-        <div class="sub">
+        <a id="more" href="{%url 'solution_detail' content.id %}"><h2>{{content.title}}</h2></a>
+    </div>
+    <div class="sub">
             {{content.author}}<br><br>
             {% if content.img %}
-            <a id="more" href="{%url 'detail' content.id %}"><img src="{{content.image_thumbnail.url}}"></a>
+            <img src="{{content.image_thumbnail.url}}">
             {% endif %}
             <br>
-            ₩{{content.price}}
+            {{content.content}}
         </div>
     </div>
     {% endfor %}
 </div>
 <br>
-{% endfor %}
 {% endif %}
 {% endblock %}
 </body>
