@@ -9,16 +9,18 @@
   <div class="body">
     <div class="content">
     {% for content in posts %}
-      <h2><a href="{%url 'detail' content.borrow_book.id %}">{{content.borrow_book.title}}</a></h2>
-      <div class="sub">
-        {{content.borrow_book.author}} | {{content.borrow_book.publisher}}<br /><br />
-        {% if content.borrow_book.img %}
-        <a id="more"><img src="{{content.borrow_book.image_thumbnail.url}}" /></a>
-        {% endif %}
-        <br />
-      </div>
-    </div>
+      {% if content.borrow_book.status == '대여중' %}
+        <h2><a href="{%url 'detail' content.borrow_book.id %}">{{content.borrow_book.title}}</a></h2>
+        <div class="sub">
+          {{content.borrow_book.author}} | {{content.borrow_book.publisher}}<br /><br />
+          {% if content.borrow_book.img %}
+          <a id="more"><img src="{{content.borrow_book.image_thumbnail.url}}" /></a>
+          {% endif %}
+          <br />
+        </div>
+      {% endif %}
     {% endfor %}
+    </div>
   </div>
   <br />
 
