@@ -55,14 +55,10 @@ class MajorBook(models.Model):
     def summary(self):
         return self.content[:50]
 
-# class BorrowBook(models.Model):
-#     title = models.CharField(max_length=30) #책 제목
-#     author = models.CharField(max_length=30) #저자
-#     publisher = models.CharField(max_length=30) #출판사
-#     pub_date = models.DateField(blank=True, null=True)  #발행일
-#     category =  models.TextField(choices=category_select, default="IT") #카테고리
-#     borrower = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE) #빌리는 사람
-#     book_pk = models.CharField(max_length=30) #책의 pk값
+class BorrowedBook(models.Model):
+    borrower = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE) #빌리는 사람
+    borrow_book = models.ForeignKey(MajorBook, on_delete=models.CASCADE) #책의 pk값
+    borrowed_date = models.DateTimeField(auto_now=True, null=True) #빌린 날짜
 
-#     def __str__(self):
-#         return self.title
+    def __str__(self):
+        return self.borrow_book.title

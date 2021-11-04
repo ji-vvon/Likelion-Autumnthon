@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.core.paginator import Paginator
 from django.utils import timezone
-from .models import MajorBook, Category
-from .forms import BookForm
+from .models import MajorBook, Category, BorrowedBook
+from .forms import BookForm, BorrowedBookForm
 from django.contrib import messages
 
 def main(request):
@@ -77,6 +77,12 @@ def rental(request, id):
         rental_book.status = '대여중'
         rental_book.save()
         messages.success(request, '대여가 성공했습니다!')
+
+        form=BorrowedBookForm().save(commit=False) #여기부터는 내가 빌린 책 기능을 위해 데이터를 넘겨주는 부분입니다.
+        form.borrower=request.user #로그인 된 유저를 빌린이에 추가합니다
+        form.borrow_book=rental_book#책을 외래키로 저장합니다
+        BorrowedBook=form.save()
+
         return redirect('book_list')
     # else:
     #     messages.success(request, '대여가 불가능한 책입니다!')
@@ -86,7 +92,10 @@ def rental(request, id):
 def mypage(request):
     me = request.user
     books = MajorBook.objects.all().filter(uploader=me).order_by('-id')
-    return render(request, 'mypage.html', {'books': books})
+    borrowed_books = BorrowedBook.objects.all().filter(borrower=me).order_by('-id')
+    return render(request, 'mypage.html', {'books': books,
+                                            'borrowed_books':borrowed_books,
+                                            })
 
 def category_page(request, slug):
     if slug == 'no_category':
@@ -112,3 +121,11 @@ def category_page(request, slug):
                       'posts' : posts
                   }
                   )
+
+def myborrowed_book(request):
+    me = request.user
+    books = BorrowedBook.objects.all().filter(borrower=me).order_by('-id')
+    paginator = Paginator(books, 8)
+    page = request.GET.get('page')
+    posts = paginator.get_page(page) 
+    return render(request, 'myborrowed_book.html', {'books': books, 'posts':posts})

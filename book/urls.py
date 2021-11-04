@@ -12,4 +12,5 @@ urlpatterns = [
     path('mypage/', mypage, name="mypage"),
     path('category/<str:slug>', category_page, name='category_page'),
     path('mybook/', mybook, name="mybook"),
+    path('myborrowed_book/', myborrowed_book, name="myborrowed_book"),
 ]

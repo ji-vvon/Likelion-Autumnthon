@@ -76,9 +76,11 @@
                     </div>
                 </a>
                 {% if user.is_authenticated %}
-                <div id="borrow_2" class="borrow_in">
-                    내가 대여중인 책
-                </div>
+                <a href="{% url 'myborrowed_book' %}">
+                    <div id="borrow_2" class="borrow_in">
+                        내가 대여중인 책
+                    </div>
+                </a>
                 {% endif %}
                 <div id="borrow_3" class="borrow_in">
                     책 요청하기
