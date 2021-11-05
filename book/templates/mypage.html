@@ -48,16 +48,10 @@
         </tr>
       </thead>
       <tbody>
-<<<<<<< HEAD
         {% for borrowed_book in borrowed_books %} {% if borrowed_book.borrow_book.status == '대여중' %}
         <tr
           onclick="location.href='/book/detail/{{borrowed_book.borrow_book.pk}}'"
         >
-=======
-        {% for borrowed_book in borrowed_books %}
-        {% if borrowed_book.borrow_book.status == '대여중' %}
-        <tr onclick="location.href='/book/detail/{{borrowed_book.borrow_book.pk}}'">
->>>>>>> 8baf54b9b68e16a2358da3943b9b28ad22bc3e6f
           <td>{{ borrowed_book.borrow_book.title }}</td>
           <td>{{ borrowed_book.borrow_book.author }}</td>
           <td>{{ borrowed_book.borrow_book.publisher }}</td>
