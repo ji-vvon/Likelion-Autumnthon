@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.core.paginator import Paginator
 from django.utils import timezone
-from .models import MajorBook, Category, BorrowedBook
+from .models import MajorBook, BorrowedBook
 from .forms import BookForm, BorrowedBookForm
 from django.contrib import messages
 
@@ -97,30 +97,41 @@ def mypage(request):
                                             'borrowed_books':borrowed_books,
                                             })
 
-def category_page(request, slug):
-    if slug == 'no_category':
-        category = '기타'
-        books = MajorBook.objects.all().filter(category=None).order_by('-id')
-        paginator = Paginator(books, 8)
-        page = request.GET.get('page')
-        posts = paginator.get_page(page)
-    else:
-        category = Category.objects.get(slug=slug)
-        books = MajorBook.objects.filter(category=category).order_by('-id')
-        paginator = Paginator(books, 8)
-        page = request.GET.get('page')
-        posts = paginator.get_page(page)
-    
-    return render(request,
-                  'rental_main.html',
-                  {
-                      'books': books,
-                      'categories': Category.objects.all(),
-                      'no_category_post_count': MajorBook.objects.filter(category=None).count(),
-                      'category': category,
-                      'posts' : posts
-                  }
-                  )
+def category_IT(request):
+    books = MajorBook.objects.all().filter(category='IT').order_by('-id')
+    paginator = Paginator(books, 8)
+    page = request.GET.get('page')
+    posts = paginator.get_page(page) 
+    return render(request, 'rental_main.html', {'books' : books, 'posts' : posts})
+
+def category_society(request):
+    books = MajorBook.objects.all().filter(category='사회').order_by('-id')
+    paginator = Paginator(books, 8)
+    page = request.GET.get('page')
+    posts = paginator.get_page(page) 
+    return render(request, 'rental_main.html', {'books' : books, 'posts' : posts})
+
+def category_science(request):
+    books = MajorBook.objects.all().filter(category='과학').order_by('-id')
+    paginator = Paginator(books, 8)
+    page = request.GET.get('page')
+    posts = paginator.get_page(page) 
+    return render(request, 'rental_main.html', {'books' : books, 'posts' : posts})
+
+def category_art(request):
+    books = MajorBook.objects.all().filter(category='예술').order_by('-id')
+    paginator = Paginator(books, 8)
+    page = request.GET.get('page')
+    posts = paginator.get_page(page) 
+    return render(request, 'rental_main.html', {'books' : books, 'posts' : posts})
+
+def category_etc(request):
+    books = MajorBook.objects.all().filter(category='기타').order_by('-id')
+    paginator = Paginator(books, 8)
+    page = request.GET.get('page')
+    posts = paginator.get_page(page) 
+    return render(request, 'rental_main.html', {'books' : books, 'posts' : posts})
+
 
 def myborrowed_book(request):
     me = request.user
