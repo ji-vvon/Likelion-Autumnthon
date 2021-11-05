@@ -58,28 +58,30 @@
     </div>
     <div id="recommend">
       <div id="recommend_category">
-        <div id="recommend_book" class="recommend_in">추천책</div>
+        <!-- <div id="recommend_book" class="recommend_in">추천책</div> -->
         <div id="new_book" class="recommend_in">새로운책</div>
         <div id="solution_book" class="recommend_in">최근 솔루션 등록</div>
       </div>
       <div id="book_container">
-        <div id="book_recommend">
+        <!-- <div id="book_recommend">
           <div id="book_recommend_1" class="book">추천책1</div>
           <div id="book_recommend_2" class="book">추천책2</div>
           <div id="book_recommend_3" class="book">추천책3</div>
           <div id="book_recommend_4" class="book">추천책4</div>
-        </div>
+        </div>  -->
         <div id="book_new">
-          <div id="book_new_1" class="book">새로운책1</div>
-          <div id="book_new_2" class="book">새로운책2</div>
-          <div id="book_new_3" class="book">새로운책3</div>
-          <div id="book_new_4" class="book">새로운책4</div>
+          {% for book in books %}
+            <a href="{%url 'detail' book.id %}">
+              <div id="book_new_1" class="book"><img src="{{book.img.url}}" width="180" height="265"/></div>
+            </a>
+          {% endfor %}
         </div>
         <div id="book_solution">
-          <div id="book_solution_1" class="book">솔루션책1</div>
-          <div id="book_solution_2" class="book">솔루션책2</div>
-          <div id="book_solution_3" class="book">솔루션책3</div>
-          <div id="book_solution_4" class="book">솔루션책4</div>
+          {% for content in contents %}
+            <a href="{%url 'solution_detail' content.id %}">
+              <div id="book_solution_1" class="book"><img src="{{content.img.url}}" width="180" height="265"/></div>
+            </a>
+          {% endfor %}
         </div>
       </div>
     </div>
