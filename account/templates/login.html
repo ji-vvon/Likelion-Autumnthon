@@ -1,6 +1,22 @@
-<h1>로그인 페이지</h1>
-<form action="{% url 'account:login' %}" method="POST">
-  {% csrf_token %}
-  {{form.as_p}}
-  <button type="submit">로그인</button>
+{% extends 'base.html' %}
+{% block content %}
+
+<head>
+    <link rel="stylesheet" href="/static/css/login.css" />
+</head>
+
+<body>
+    <h1>로그인 페이지</h1>
+    <hr>
+    <div id="container">
+      <form action="{% url 'account:login' %}" method="POST">
+      {% csrf_token %}
+      {{form.as_p}}
+      <div id="submit_button">
+        <button type="submit" id="button_submit">로그인</button>
+      </div>
+    </div>
 </form>
+</body>
+
+{% endblock %}
