@@ -8,12 +8,18 @@ from solution.models import Solution#솔루션 책의 데이터
 from django.contrib.auth.forms import UserChangeForm
 
 def main(request):
-    books = MajorBook.objects.all().order_by('-id')
-    paginator = Paginator(books, 4)
+    b = MajorBook.objects.all().order_by('-id')
+    book_paginator = Paginator(b, 4)
+    book = request.GET.get('page')
+    books = book_paginator.get_page(book)
+
+    s = Solution.objects.all().order_by('-id')
+    solution_paginator = Paginator(s, 4)
+    # solution = request.GET.get('page')
+    solutions = solution_paginator.get_page(book)
 
     contents = Solution.objects.all().order_by('-id')
-    paginator = Paginator(contents, 4)
-    return render(request, 'main.html', {'books' : books, 'contents' : contents})
+    return render(request, 'main.html', {'books' : books, 'solutions' : solutions,'contents' : contents})
 
 # 책 목록 페이지
 def book_list(request):

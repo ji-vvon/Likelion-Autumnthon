@@ -1,6 +1,7 @@
 body {
     margin: 0%;
     -ms-overflow-style: none;
+    font-family: 'GowunDodum-Regular';
 }
 
 ::-webkit-scrollbar { 
@@ -29,13 +30,14 @@ body {
 #search_input {
     width: 70%;
     height: 10vh;
-    font-size: 2vw;
+    font-size: 1.5vw;
     border: 0;
     border-bottom: solid 3px;
     border-color: white;
     background-color: rgb(255, 118, 64, 0);
     color: white;
     padding-left: 20px;
+    font-family: 'GowunDodum-Regular';
 }
 
 #search_input::placeholder {
@@ -43,15 +45,17 @@ body {
 }
 
 #search_submit {
+    font-family: 'GowunDodum-Regular';
     width: 15vw;
     height: 10vh;
-    font-size: 2vw;
+    font-size: 1.5vw;
     margin-left: 1vw;
     color: white;
     background-color: rgb(255, 118, 64, 0);
     border: solid 3px;
     border-color: white;
     cursor: pointer;
+    border-radius: 30px;
 }
 
 #pop_category {
@@ -164,16 +168,39 @@ body {
 }
 
 .book {
-    background-color: white;
-    margin-top: 3vh;
-    margin-left: 4vw;
-    width: 13vw;
-    height: 38vh;
-    transition: all .2s ease-in-out;
-    text-align: center;
-    line-height: 38vh;
-    cursor: pointer;
+    background-color: rgb(238, 227, 227);
+    margin: 15px 10px;
+    padding: 2vh;
+    width: 25vh;
+    height: 30vh;
+    border-radius: 10%;
+    float: left;
 }
+
+img {
+    width: 20vh;
+    height: 23vh;
+}
+
+#book_new {
+    text-align: center;
+}
+
+.recent_solution_container {
+    text-align: center;
+   background-color: rgb(238, 227, 227);
+   margin: 15px 10px;
+   padding: 2vh;
+   width: 25vh;
+   height: 30vh;
+   border-radius: 10%;
+   float: left;
+ }
+
+ #more_link {
+   color: rgb(170, 99, 99);
+}
+
 
 .book:hover {
     /* background-color: grey; */
@@ -197,7 +224,14 @@ body {
     margin-left: 20vw;
 }
 
+<<<<<<< HEAD
 #logo {
     overflow: hidden;
     display: flex;
 }
+=======
+p {
+    font-size:17px;
+    font-weight: bolder;
+}
+>>>>>>> 8baf54b9b68e16a2358da3943b9b28ad22bc3e6f
