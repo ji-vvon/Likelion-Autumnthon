@@ -64,5 +64,10 @@ textarea {
 }
 
 .reply_container {
+    color: grey;
+    cursor: pointer;
+}
+
+.reply_in {
     display: none;
 }
