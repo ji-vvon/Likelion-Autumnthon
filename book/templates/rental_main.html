@@ -5,14 +5,41 @@
 </head>
 
 <body>
-  <h1>책 대여하기</h1>
-  <hr>
+  <h1>책 대여하기{%if category %} - {{category}} {% endif %}</h1>
+  <hr />
   <div class="rental_cat">
-    <button id="cat_btn" type="button" onclick="location.href='/book/'">전체</button>
-    <button id="cat_btn" type="button" onclick="location.href='/book/category/IT'">IT</button>
-    <button id="cat_btn" type="button" onclick="location.href='/book/category/society'">사회</button>
-    <button id="cat_btn" type="button" onclick="location.href='/book/category/science'">과학</button>
-    <button id="cat_btn" type="button" onclick="location.href='/book/category/art'">예술</button>
+    <button id="cat_btn" type="button" onclick="location.href='/book/'">
+      전체
+    </button>
+    <button
+      id="cat_btn"
+      type="button"
+      onclick="location.href='/book/category/IT'"
+    >
+      IT
+    </button>
+    <button
+      id="cat_btn"
+      type="button"
+      onclick="location.href='/book/category/society'"
+    >
+      사회
+    </button>
+    <button
+      id="cat_btn"
+      type="button"
+      onclick="location.href='/book/category/science'"
+    >
+      과학
+    </button>
+    <button
+      id="cat_btn"
+      type="button"
+      onclick="location.href='/book/category/art'"
+    >
+      예술
+    </button>
+    <button id="cat_btn" type="button" onclick="location.href='/book/category/etc'">기타</button>
   </div>
   <div class="body">
     {% for content in posts %} {% if content.status == '대여 가능' %}
@@ -42,11 +69,11 @@
 
     {%if posts.has_next%}
     <a href="?page={{posts.next_page_number}}">▶</a>
-    <a href="?page={{posts.paginator.num_pages}}">{{posts.paginator.num_pages}}</a>
+    <a href="?page={{posts.paginator.num_pages}}"
+      >{{posts.paginator.num_pages}}</a
+    >
     {% endif %}
   </div>
-
-
 
   {% if messages %} {% for message in messages %} {% if message.tags %}
   <script>
