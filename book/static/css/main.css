@@ -163,7 +163,7 @@ body {
     text-align: left;
 }
 
-.book {
+/* .book {
     background-color: white;
     margin-top: 3vh;
     margin-left: 4vw;
@@ -173,7 +173,42 @@ body {
     text-align: center;
     line-height: 38vh;
     cursor: pointer;
+} */
+
+.book {
+    background-color: rgb(238, 227, 227);
+    margin: 15px 10px;
+    padding: 2vh;
+    width: 25vh;
+    height: 30vh;
+    border-radius: 10%;
+    float: left;
 }
+
+img {
+    width: 20vh;
+    height: 23vh;
+}
+
+#book_new {
+    text-align: center;
+}
+
+.recent_solution_container {
+    text-align: center;
+   background-color: rgb(238, 227, 227);
+   margin: 15px 10px;
+   padding: 2vh;
+   width: 25vh;
+   height: 30vh;
+   border-radius: 10%;
+   float: left;
+ }
+
+ #more_link {
+   color: rgb(170, 99, 99);
+}
+
 
 .book:hover {
     /* background-color: grey; */
@@ -195,4 +230,9 @@ body {
 #bottom_text {
     margin-top: 3vh;
     margin-left: 20vw;
+}
+
+p {
+    font-size:17px;
+    font-weight: bolder;
 }
