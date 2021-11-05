@@ -1,0 +1,55 @@
+{% extends 'base.html' %} {% block content %}
+<head>
+  <link rel="stylesheet" href="/static/css/rental_main.css" />
+</head>
+
+<body>
+{% if searched %}
+  <h2>검색하신 "{{searched}}" 정보입니다.</h2>
+
+  <div class="body">
+  {% for book in books %}
+    <div class="content">
+      <h2><a href="{%url 'detail' book.id %}">{{book.title}}</a></h2>
+      <div class="sub">
+        {{book.author}} | {{book.publisher}}<br /><br />
+        {% if book.img %}
+        <a id="more"><img src="{{book.image_thumbnail.url}}" /></a>
+        {% endif %}
+        <br />
+      </div>
+    </div>
+    {% endfor %}
+{% else %} 
+    <h2>검색어를 입력해주세요</h2>
+{% endif %}
+  </div>
+  <br />
+
+  <div class="page">
+    {% if posts.has_previous %}
+    <a href="?page=1">1</a>
+    <a href="?page={{posts.previous_page_number}}">◀</a>
+    {% endif %}
+
+    <span>{{posts.number}}</span>
+    <span>of</span>
+    <span>{{posts.paginator.num_pages}}</span>
+
+    {%if posts.has_next%}
+    <a href="?page={{posts.next_page_number}}">▶</a>
+    <a href="?page={{posts.paginator.num_pages}}"
+      >{{posts.paginator.num_pages}}</a
+    >
+    {% endif %}
+  </div>
+
+
+
+  {% if messages %} {% for message in messages %} {% if message.tags %}
+  <script>
+    alert("{{ message }}");
+  </script>
+  {% endif %} {% endfor %} {% endif %}
+</body>
+{% endblock %}
