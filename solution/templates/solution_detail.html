@@ -72,7 +72,7 @@
         <!-- <span id="recomment" onclick="showRecommentForm(this)" value="{{comment.id}}">답댓글쓰기</span>
         <div id="re_comment_form{{comment.id}}"></div> -->
         <div class="reply_container">
-            <div id="reply_button">답글 열기/닫기</div>
+            <div class="reply_button">답글 열기/닫기</div>
             <div class="reply_in">
                 <form id="recomment_form" action="{% url 'create_re_comment' data.id comment.id%}" method="post"
                     enctype="multipart/form-data">
