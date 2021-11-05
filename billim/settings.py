@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'book',
     'solution',
     'account',
+    'billimforest',
 ]
 
 MIDDLEWARE = [
