@@ -6,6 +6,9 @@
 <body>
   <h1>내가 대여중인 책</h1>
   <hr>
+  {% if not posts %}
+  <h3>아직 대여중인 책이 없습니다.</h3>
+  {% endif %}
 
   <div class="body">
     {% for content in posts %}
