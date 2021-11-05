@@ -13,7 +13,7 @@
           <th scope="col">제목</th>
           <th scope="col">저자</th>
           <th scope="col">출판사</th>
-          <th scope="col">작성일</th>
+          <th scope="col">발행일</th>
           <th scope="col">대여여부</th>
         </tr>
       </thead>
@@ -23,7 +23,7 @@
           <td>{{book.title}}</td>
           <td>{{book.author}}</td>
           <td>{{book.publisher}}</td>
-          <td>{{book.pub_date| date:"20y-m-d"}}</td>
+          <td>{{book.pub_date| date:"Y-m-d"}}</td>
           <td>{{book.status}}</td>
         </tr>
       </tbody>
@@ -44,7 +44,7 @@
           <th scope="col">제목</th>
           <th scope="col">저자</th>
           <th scope="col">출판사</th>
-          <th scope="col">작성일</th>
+          <th scope="col">대여일</th>
         </tr>
       </thead>
       <tbody>
@@ -54,7 +54,7 @@
             <td>{{ borrowed_book.borrow_book.title }}</td>
             <td>{{ borrowed_book.borrow_book.author }}</td>
             <td>{{ borrowed_book.borrow_book.publisher }}</td>
-            <td>{{ borrowed_book.borrowed_date }}</td>
+            <td>{{ borrowed_book.borrowed_date | date:"Y-m-d" }}</td>
           </tr>
           {% endif %}
         {% endfor %}

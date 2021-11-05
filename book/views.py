@@ -129,3 +129,15 @@ def myborrowed_book(request):
     page = request.GET.get('page')
     posts = paginator.get_page(page) 
     return render(request, 'myborrowed_book.html', {'books': books, 'posts':posts})
+
+# 검색
+def search(request):
+    if request.method == 'POST':
+        searched = request.POST['searched']        
+        books = MajorBook.objects.filter(title__contains=searched)
+        paginator = Paginator(books, 8)
+        page = request.GET.get('page')
+        posts = paginator.get_page(page)
+        return render(request, 'searched.html', {'searched': searched, 'books': books, 'posts':posts})
+    else:
+        return render(request, 'searched.html')
