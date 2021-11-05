@@ -62,3 +62,7 @@ textarea {
 #delete, #edit {
     color: rgb(209, 49, 49);
 }
+
+.reply_container {
+    display: none;
+}
