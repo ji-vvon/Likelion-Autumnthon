@@ -1,35 +1,64 @@
-body {
+.container {
     text-align: center;
-    font-family: sans-serif;
-    margin:10%;
+    margin: 5% 10%;
 }
 
-.book_container {
-    margin : 10px 0;
+.solution_container_content {
+    border: none;
+    background-color: rgb(225, 232, 236);
+    border-radius: 20px;
+    padding: 20px;
+    padding-left: 50px;
+    margin: 20px 20%;
+    font-size: 17px;
+    color: rgb(0, 0, 0);
+
 }
 
-img {
-    margin:0 3%;
-    width:200px;
-    height: 240px;
+
+h1 {
+    text-align: center;
+    margin-top: 80px;
+    font-family: 'GowunDodum-Regular';
 }
 
-.book_container {
-    padding: 3%;
-    border:3px solid rgb(140, 138, 145);
+h2 {
+    text-align: center;
+    color: rgb(58, 58, 66);
+    font-family: 'GowunDodum-Regular';
+}
+
+hr {
+    margin: 0 15%;
+    margin-top: 50px;
+    height: 10px;
+    border: 0;
+    box-shadow: 0 10px 10px -10px #bbb inset;
+}
+
+textarea {
+    width: 50%;
+    height: 50px;
+    border-radius: 5px;
+    resize: none;
+
+    font-family: 'GowunDodum-Regular';
+}
+
+#comment_form,
+#recomment_form {
+    color: white;
+}
+
+#submit {
+    border: none;
+    background-color: rgb(225, 232, 236);
     border-radius: 30px;
+    width: 50px;
+    height: 30px;
+    font-family: 'GowunDodum-Regular';
 }
 
-.book_container_content {
-margin: 0 10%;
-}
-
-#book_rental_btn {
-width: 100px;
-height: 40px;
-color: #000000;
-background-color: white;
-border: 2px solid rgb(167, 46, 42);
-border-radius: 8px;
-font-weight: bold;
+#delete, #edit {
+    color: rgb(209, 49, 49);
 }

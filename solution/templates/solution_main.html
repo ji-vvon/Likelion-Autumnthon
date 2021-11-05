@@ -1,25 +1,28 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
 <head>
     <link rel="stylesheet" href="/static/css/solution_main.css" />
 </head>
+
 <body>
-  <h1>Solution</h1> 
+    <h1>솔루션 찾기</h1>
     <br>
     <form action="{% url 'solution_search' %}" method="post">
         {% csrf_token %}
-        <input id="search" type="search" placeholder="Search" aria-label="Search" name="find" value="{{find}}">
-        <button class="btn btn-outline-success" type="submit">🔎Search</button>
+        <input id="search" type="search" placeholder="검색어를 입력해주세요" aria-label="Search" name="find" value="{{find}}">
+        <button id="search_btn" type="submit">검색</button>
     </form>
 
     <div class="body">
-        {% for content in contents %}
+        {% for content in posts %}
         <div class="content">
             <h2>{{content.title}}</h2>
             <div class="sub">
-                작성자<br><br>
-                {{content.content}}
+                <b> {{content.writer}}</b><br>
+                {{content.summary}}<br> <a href="{%url 'solution_detail' content.id %}"
+                    id="more_link">more...</a><br><br>
             </div>
         </div>
         {% endfor %}
@@ -44,5 +47,5 @@
 
     <br>
 </body>
-  
+
 {% endblock %}

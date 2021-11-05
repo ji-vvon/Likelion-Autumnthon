@@ -4,7 +4,7 @@ from .models import Solution, Comment
 class SolutionForm(forms.ModelForm):
     class Meta:
         model = Solution
-        fields = ['title', 'content', 'img']#writer넣어야함
+        fields = ['title', 'content', 'img']
 
 class CommentForm(forms.ModelForm):
     class Meta:

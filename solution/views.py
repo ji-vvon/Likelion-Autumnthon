@@ -7,29 +7,30 @@ from datetime import date, datetime
 from django.conf import settings
 from django.shortcuts import render
 
-def home(request):
+def solution_home(request):
     contents = Solution.objects.all().order_by('-id')
-    paginator = Paginator(contents, 3)
+    paginator = Paginator(contents, 5)
     page = request.GET.get('page')
     posts = paginator.get_page(page) 
     return render(request,'solution_main.html', {'contents' : contents, 'posts' : posts})
 
 def solution_detail(request, id):
     detail_data = get_object_or_404(Solution, pk = id)
-    comments = Comment.objects.filter(Solution_id=id, comment_id__isnull=True)
+    comments = Comment.objects.filter(solution_id=id, comment_id__isnull=True)
 
     re_comments = []
     for comment in comments:
         re_comments += list(Comment.objects.filter(comment_id=comment.id))
     
     form = CommentForm()
-    response =  render(request, 'solution_detail.html' ,{'data' : detail_data, 'comments' : comments, 're_comments' : re_comments, 'form':form})
+    return render(request, 'solution_detail.html' ,{'data' : detail_data, 'comments' : comments, 're_comments' : re_comments, 'form':form})
 
 def solution_new(request):
     if request.method == 'POST': #폼 다채우고 저장버튼 눌렀을 때
         form = SolutionForm(request.POST, request.FILES)
         if form.is_valid():
             post = form.save(commit = False)
+            post.writer = request.user
             post.pub_date = timezone.now() #날짜 생성
             post.save()
             return redirect('solution_detail', post.id)
@@ -42,13 +43,13 @@ def solution_update(request, id):
     post = get_object_or_404(Solution, pk = id)
     if request.method == 'GET':  #수정하려고 들어갔을 때
         form = SolutionForm(instance = post)
-        return render(request, 'update.html', {'form' : form})
+        return render(request, 'solution_update.html', {'form' : form})
     else:   #수정 끝나고 수정 버튼을 눌렀을 때
         form = SolutionForm(request.POST, request.FILES, instance = post)
         if form.is_valid():
             post = form.save(commit = False)
             post.save()
-            return redirect('/solution/detail/' + str(id))
+            return redirect('/solution/solution_detail/' + str(id))
         return redirect('/solution')
 
 def solution_delete(request, id):
@@ -72,8 +73,8 @@ def create_comment(request, id):
         form = CommentForm(request.POST)
         if form.is_valid():
             comment = form.save(commit=False)
-            comment.Solution_id = Solution.objects.get(pk=id)
-            comment.author = request.user
+            comment.solution_id = Solution.objects.get(pk=id)
+            comment.writer = request.user
             comment.save()
     return redirect('solution_detail', id)
 
@@ -82,9 +83,9 @@ def create_re_comment(request, id, comment_id):
         form = CommentForm(request.POST)
         if form.is_valid():
             comment = form.save(commit=False)
-            comment.Solution_id = Solution.objects.get(pk=id)
+            comment.solution_id = Solution.objects.get(pk=id)
             comment.comment_id = Comment.objects.get(pk=comment_id)
-            comment.author = request.user
+            comment.writer = request.user
             comment.save()
     return redirect('solution_detail', id)
 

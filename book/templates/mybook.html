@@ -1,21 +1,14 @@
 {% extends 'base.html' %} {% block content %}
-
 <head>
   <link rel="stylesheet" href="/static/css/rental_main.css" />
 </head>
 
 <body>
-  <h1>책 대여하기{% if category %} - [ {{category}} ]{% endif %}</h1>
-  <hr>
-  <div class="rental_cat">
-    <button id="cat_btn" type="button" onclick="location.href='/book/'">전체</button>
-    <button id="cat_btn" type="button" onclick="location.href='/book/category/IT'">IT</button>
-    <button id="cat_btn" type="button" onclick="location.href='/book/category/인문'">인문</button>
-    <button id="cat_btn" type="button" onclick="location.href='/book/category/과학'">과학</button>
-    <button id="cat_btn" type="button" onclick="location.href='/book/category/예술'">예술</button>
-  </div>
+  <h1>내가 등록한 책</h1>
+<hr>
+
   <div class="body">
-    {% for content in posts %} {% if content.status == '대여 가능' %}
+    {% for content in posts %}
     <div class="content">
       <h2><a href="{%url 'detail' content.id %}">{{content.title}}</a></h2>
       <div class="sub">
@@ -26,7 +19,7 @@
         <br />
       </div>
     </div>
-    {% endif %} {% endfor %}
+    {% endfor %}
   </div>
   <br />
 
@@ -42,7 +35,9 @@
 
     {%if posts.has_next%}
     <a href="?page={{posts.next_page_number}}">▶</a>
-    <a href="?page={{posts.paginator.num_pages}}">{{posts.paginator.num_pages}}</a>
+    <a href="?page={{posts.paginator.num_pages}}"
+      >{{posts.paginator.num_pages}}</a
+    >
     {% endif %}
   </div>
 

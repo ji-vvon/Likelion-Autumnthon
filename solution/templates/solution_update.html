@@ -1,14 +1,18 @@
-.container {
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+   .container {
     text-align: center;
     margin: 5% 10%;
 }
 
-h2 {
+h1 {
     text-align: center;
     margin-top:80px;
 }
 
-h3{
+h2{
     color:rgb(58, 58, 66);
     font-family: sans-serif;
     text-align: right;
@@ -17,9 +21,9 @@ h3{
 }
 
 hr {
-    border: 1px solid rgb(255, 118, 64);
+    border: 1px solid rgb(61, 93, 153);
     margin:0 15%;
-    margin-top:50px;
+    margin-top:70px;
 }
 
 input,
@@ -28,16 +32,17 @@ select {
     font-family: sans-serif;
     width: 50%;
     border: none;
-    background-color: rgb(226, 226, 226);
+    background-color: rgb(255, 255, 255);
+    border: 2px solid black;
     border-radius: 20px;
-    padding: 15px;
+    padding: 20px;
     margin: 0px 50px;
     font-size: 18px;
     color: rgb(0, 0, 0);
 }
 
 #submit {
-    border: 2px solid rgb(255, 118, 64);
+    border: 2px solid rgb(61, 93, 153);
     background-color: rgb(255, 255, 255);
     color: rgb(0, 0, 0);
     font-size: 20px;
@@ -45,3 +50,17 @@ select {
     padding: 10px 25px;
     margin-bottom :20px;
 }
+
+</style>
+<br>
+<h1>수정하기</h1>
+<hr>
+<div class="container">
+<form method="post" enctype="multipart/form-data">
+    {%csrf_token%} 
+    <h2>{{form.as_p}}</h2>
+    <br><br>
+    <button type ="submit" id="submit">submit</button>
+</form>
+</div>
+{% endblock %}

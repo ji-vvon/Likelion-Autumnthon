@@ -16,7 +16,6 @@ h2 {
     height: 450px;
     border-radius: 10%;
     float: left;
-
 }
 
 .sub {
@@ -33,4 +32,8 @@ img {
     width: 180px;
     object-fit: fill;
 
+}
+
+#more_link {
+    color: rgb(170, 99, 99);
 }
