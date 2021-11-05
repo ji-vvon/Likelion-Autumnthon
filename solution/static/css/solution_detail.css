@@ -59,6 +59,6 @@ textarea {
     font-family: 'GowunDodum-Regular';
 }
 
-#delete {
+#delete, #edit {
     color: rgb(209, 49, 49);
 }

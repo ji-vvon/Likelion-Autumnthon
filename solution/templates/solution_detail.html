@@ -27,9 +27,9 @@
             2021-11-02 <br>
             {{data.writer}} <br><br>
             {% if user == data.writer %}
-            <div class="edit"><a href="{% url 'solution_update' data.id %}">수정하기</a>
-                <a href="{% url 'solution_delete' data.id %}">삭제하기</a>
-            </div>
+            <a id="edit" href="{% url 'solution_update' data.id %}">수정하기</a>
+                <a id="edit" href="{% url 'solution_delete' data.id %}">삭제하기</a>
+         
             {%endif%}
         </div>
         <br>
