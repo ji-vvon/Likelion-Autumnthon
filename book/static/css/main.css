@@ -196,3 +196,8 @@ body {
     margin-top: 3vh;
     margin-left: 20vw;
 }
+
+#logo {
+    overflow: hidden;
+    display: flex;
+}

@@ -21,4 +21,5 @@ urlpatterns = [
     path('mybook/', mybook, name="mybook"),
     path('myborrowed_book/', myborrowed_book, name="myborrowed_book"),
     path('search/', search, name="search"),
+    path('placeholder/', placeholder, name="placeholder"),
 ]

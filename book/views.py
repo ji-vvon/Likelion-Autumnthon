@@ -163,3 +163,7 @@ def search(request):
         return render(request, 'searched.html', {'searched': searched, 'books': books, 'posts':posts})
     else:
         return render(request, 'searched.html')
+
+#placeholder
+def placeholder(request):
+    return render(request, 'placeholder.html', {})

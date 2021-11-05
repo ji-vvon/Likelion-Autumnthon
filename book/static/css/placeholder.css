@@ -1,0 +1,167 @@
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.maple {
+    width: 25%;
+    height: 50%;
+    background-size: cover;
+}
+
+#maple_1 {
+    position: absolute;
+    top: -15%;
+    left: -2%;
+    background-image: URL(../images/maple1.png);
+    transform-origin:left top;
+    animation-name: maple1;
+    animation-duration:2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
+}
+
+#maple_2 {
+    position: absolute;
+    top: 58%;
+    left: -5%;
+    background-image: URL(../images/maple2.png);
+    transform-origin:left bottom;
+    animation-name: maple2;
+    animation-duration:4s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-fill-mode: forwards
+}
+
+#maple_3 {
+    position: absolute;
+    top: -15%;
+    left: 81%;
+    background-image: URL(../images/maple3.png);
+    transform-origin:right top;
+    animation-name: maple3;
+    animation-duration:3s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-fill-mode: forwards
+}
+
+
+@-webkit-keyframes maple1 {
+    0% {
+      transform: rotate(0deg)
+    }
+    100% {
+        transform: rotate(15deg)
+    }
+  }
+
+  @-webkit-keyframes maple2 {
+    0% {
+      transform: rotate(-15deg)
+    }
+    100% {
+        transform: rotate(15deg)
+    }
+  }
+
+  @-webkit-keyframes maple3 {
+    0% {
+      transform: rotate(10deg)
+    }
+    100% {
+        transform: rotate(-10deg)
+    }
+  }
+
+
+/* ------------------------------ */
+
+body {
+    background-color: #ffc39b;
+    margin:0;
+ }
+ 
+ .patterns {
+   height: 100vh;
+ }
+ 
+ 
+ 
+ svg text {
+   font-family: Lora;
+   letter-spacing: 10px;
+   stroke: #ff4726;
+   font-size: 150px;
+   font-weight: 700;
+   stroke-width: 3;
+  
+   animation: textAnimate 5s infinite alternate;
+   
+ }
+ 
+ @keyframes textAnimate {
+   0% {
+     stroke-dasharray: 0 50%;
+     stroke-dashoffset:  20%;
+     fill:hsl(189, 68%, 75%)
+ 
+   }
+   
+   100% {
+     stroke-dasharray: 50% 0;
+     stroke-dashoffstet: -20%;
+     fill: hsl(189, 68%, 75%, 80%)
+   }
+   
+ }
+ 
+ 
+ /* --------------------------- */
+
+ @font-face {
+    font-family: 'GowunDodum-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunDodum-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+ .wrapper {
+    position: absolute;
+    height: 100vh;
+    /*This part is important for centering*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 10%;
+    left: 38%;
+  }
+  
+  .typing-demo {
+    text-shadow: -2px 0 rgb(255, 82, 38), 0 2px rgb(255, 82, 38), 2px 0 rgb(255, 82, 38), 0 -2px rgb(255, 82, 38);
+    font-family: 'GowunDodum-Regular';
+    font-weight: bold;
+    color: rgb(68, 68, 68);
+    width: 20ch;
+    animation: typing 2s steps(22), blink .5s step-end infinite alternate;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid;
+    font-size: 2.5em;
+  }
+  
+  @keyframes typing {
+    from {
+      width: 0
+    }
+  }
+      
+  @keyframes blink {
+    50% {
+      border-color: transparent
+    }
+  }
