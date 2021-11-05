@@ -19,13 +19,18 @@
         <br />
       </div>
     </div>
-    {% endfor %}
+  {% endfor %}
 {% else %} 
     <h2>검색어를 입력해주세요</h2>
+{% endif %}
+
+{% if not books %}
+<h3>찾으시는 정보가 없습니다.</h3>
 {% endif %}
   </div>
   <br />
 
+{% if books %}
   <div class="page">
     {% if posts.has_previous %}
     <a href="?page=1">1</a>
@@ -43,7 +48,7 @@
     >
     {% endif %}
   </div>
-
+{% endif %}
 
 
   {% if messages %} {% for message in messages %} {% if message.tags %}

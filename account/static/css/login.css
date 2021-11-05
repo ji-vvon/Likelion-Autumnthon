@@ -21,9 +21,13 @@ a {
     color: black;
 }
 
+
 h1 {
     text-align: center;
-}
+    margin-top: 80px;
+    font-family: 'GowunDodum-Regular';
+  }
+
 
 #container {
     font-size: 1.5vw;
@@ -41,7 +45,7 @@ h1 {
     align-items: center;
 }
 
-#button_submit {
+/* #button_submit {
     font-size: 1vw;
     border: 0;
     cursor: pointer;
@@ -50,15 +54,32 @@ h1 {
     margin-top: 1vh;
     background-color: rgb(218, 68, 8);
     color: white;
+} */
+
+#button_submit {
+    /* border: 2px solid rgb(167, 167, 167); */
+    border:none;
+    background-color: rgb(218, 125, 88);
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    border-radius: 30px;
+    padding: 10px 25px;
+    margin: 5% 0;
+    font-family: 'GowunDodum-Regular';
 }
 
 input {
     width: 15vw;
-    height: 5vh;
-    margin-bottom: 2vh;
-    border-radius: 0;
-    border-color: grey; 
-    font-size: 1vw;
+    border: none;
+    background-color: rgb(236, 231, 225);
+    border-radius: 20px;
+    padding: 20px;
+    margin: 5%;
+    font-size: 18px;
+    color: rgb(0, 0, 0);
+    resize: none;
+    
+    font-family: 'GowunDodum-Regular';
 }
 
 #bg {
@@ -67,3 +88,11 @@ input {
     margin-top: 20vh;
     background: linear-gradient(to right, rgb(218, 68, 8), rgb(255, 118, 64));
 }
+
+hr {
+    margin: 0 15%;
+    margin-top: 70px;
+    height: 10px;
+    border: 0;
+    box-shadow: 0 10px 10px -10px #bbb inset;
+  }
