@@ -21,9 +21,12 @@ a {
     color: black;
 }
 
+
 h1 {
     text-align: center;
-}
+    margin-top: 80px;
+    font-family: 'GowunDodum-Regular';
+  }
 
 #container {
     font-size: 1.5vw;
@@ -89,3 +92,11 @@ input {
     margin-left: 1vw;
     display: none;
 }
+
+hr {
+    margin: 0 15%;
+    margin-top: 70px;
+    height: 10px;
+    border: 0;
+    box-shadow: 0 10px 10px -10px #bbb inset;
+  }
