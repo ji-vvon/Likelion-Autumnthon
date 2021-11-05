@@ -4,9 +4,15 @@ from django.utils import timezone
 from .models import MajorBook, BorrowedBook
 from .forms import BookForm, BorrowedBookForm
 from django.contrib import messages
+from solution.models import Solution#솔루션 책의 데이터
 
 def main(request):
-    return render(request, 'main.html')
+    books = MajorBook.objects.all().order_by('-id')
+    paginator = Paginator(books, 4)
+
+    contents = Solution.objects.all().order_by('-id')
+    paginator = Paginator(contents, 4)
+    return render(request, 'main.html', {'books' : books, 'contents' : contents})
 
 # 책 목록 페이지
 def book_list(request):
