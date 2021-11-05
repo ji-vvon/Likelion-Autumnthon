@@ -33,3 +33,7 @@ img {
     object-fit: fill;
 
 }
+
+#more_link {
+    color: rgb(170, 99, 99);
+}

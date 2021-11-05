@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="/static/css/solution_main.css" />
 </head>
 <body>
-<h1 class="title1">SEARCH RESULT</h1>
+<h1 class="title1">검색 결과</h1>
 {% if not data %}
 <h1>NO RESULT</h1>
 {% else %}
@@ -15,15 +15,11 @@
 <div class="body">
     {% for content in data %}
     <div class="content">
-        <a id="more" href="{%url 'solution_detail' content.id %}"><h2>{{content.title}}</h2></a>
-    </div>
-    <div class="sub">
-            {{content.author}}<br><br>
-            {% if content.img %}
-            <img src="{{content.image_thumbnail.url}}">
-            {% endif %}
-            <br>
-            {{content.content}}
+        <h2>{{content.title}}</h2>
+        <div class="sub">
+            <b> {{content.writer}}</b><br>
+            {{content.summary}}<br> <a href="{%url 'solution_detail' content.id %}"
+                id="more_link">more...</a><br><br>
         </div>
     </div>
     {% endfor %}
