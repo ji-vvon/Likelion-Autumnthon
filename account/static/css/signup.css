@@ -31,17 +31,19 @@ h1 {
 #container {
     font-size: 1.5vw;
 
-    height: 45vh;
+    height: 65vh;
     /* width: 50vw; */
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-left: 3vw;
 }
 
 #submit_button {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-left: -2vw;
 }
 /* 
 #button_submit {
@@ -65,6 +67,7 @@ h1 {
     padding: 10px 25px;
     margin: 5% 0;
     font-family: 'GowunDodum-Regular';
+    cursor: pointer;
 }
 
 /* input {
@@ -83,7 +86,7 @@ input {
     background-color: rgb(236, 231, 225);
     border-radius: 20px;
     padding: 20px;
-    margin: 5%;
+    margin: 1vh;
     font-size: 18px;
     color: rgb(0, 0, 0);
     resize: none;
