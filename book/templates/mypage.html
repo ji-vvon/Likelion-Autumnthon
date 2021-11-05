@@ -48,8 +48,7 @@
         </tr>
       </thead>
       <tbody>
-        {% for borrowed_book in borrowed_books %} {% if
-        borrowed_book.borrow_book.status == '대여중' %}
+        {% for borrowed_book in borrowed_books %} {% if borrowed_book.borrow_book.status == '대여중' %}
         <tr
           onclick="location.href='/book/detail/{{borrowed_book.borrow_book.pk}}'"
         >
