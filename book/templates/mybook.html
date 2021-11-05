@@ -5,7 +5,10 @@
 
 <body>
   <h1>내가 등록한 책</h1>
-<hr>
+  <hr />
+  {% if not posts %}
+  <h3>아직 등록한 책이 없습니다.</h3>
+  {% endif %}
 
   <div class="body">
     {% for content in posts %}
@@ -40,8 +43,6 @@
     >
     {% endif %}
   </div>
-
-
 
   {% if messages %} {% for message in messages %} {% if message.tags %}
   <script>
