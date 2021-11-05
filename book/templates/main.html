@@ -19,9 +19,10 @@
     <div id="logo">
     </div>
     <div id="search">
-        <form>
-            <input type="text" id="search_input" placeholder="검색어를 입력해주세요"/>
-            <input type="submit" id="search_submit" />
+        <form method="post" action="{% url 'search' %}">
+        {% csrf_token %}
+            <input type="text" id="search_input" placeholder="검색어를 입력해주세요" name="searched"/>
+            <button type="submit" id="search_submit">검색</button>
         </form>
     </div>
     <div id="pop_category">

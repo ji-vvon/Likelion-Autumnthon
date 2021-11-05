@@ -4,21 +4,25 @@
 </head>
 
 <body>
-  <h1>내가 등록한 책</h1>
+{% if searched %}
+  <h2>검색하신 "{{searched}}" 정보입니다.</h2>
 
   <div class="body">
-  {% for content in posts %}
+  {% for book in books %}
     <div class="content">
-      <h2><a href="{%url 'detail' content.id %}">{{content.title}}</a></h2>
+      <h2><a href="{%url 'detail' book.id %}">{{book.title}}</a></h2>
       <div class="sub">
-        {{content.author}} | {{content.publisher}}<br /><br />
-        {% if content.img %}
-        <a id="more"><img src="{{content.image_thumbnail.url}}" /></a>
+        {{book.author}} | {{book.publisher}}<br /><br />
+        {% if book.img %}
+        <a id="more"><img src="{{book.image_thumbnail.url}}" /></a>
         {% endif %}
         <br />
       </div>
     </div>
     {% endfor %}
+{% else %} 
+    <h2>검색어를 입력해주세요</h2>
+{% endif %}
   </div>
   <br />
 

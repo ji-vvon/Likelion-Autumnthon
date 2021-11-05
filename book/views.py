@@ -16,16 +16,6 @@ def book_list(request):
     posts = paginator.get_page(page) 
     return render(request, 'rental_main.html', {'books' : books, 'posts' : posts})
 
-# 내가 등록한 책 목록
-def mybook(request):
-    me = request.user
-    books = MajorBook.objects.all().filter(uploader=me).order_by('-id')
-    paginator = Paginator(books, 8)
-    page = request.GET.get('page')
-    posts = paginator.get_page(page) 
-    return render(request, 'mybook.html', {'books': books, 'posts':posts})
-
-
 # 책 상세 페이지
 def detail(request, pk):
     book = MajorBook.objects.get(pk=pk)
@@ -50,7 +40,6 @@ def edit(request, pk):
     edit_book = MajorBook.objects.get(pk=pk)
     return render(request, 'rental_edit.html', {'book':edit_book})
 
-# 수정이 안되는 오류 발생
 def update(request, pk):
     update_book = MajorBook.objects.get(pk=pk)
     update_book.title = request.POST['title']
@@ -69,6 +58,7 @@ def delete(request, pk):
     delete_book.delete()
     return redirect('book_list')
 
+# 대여 기능
 def rental(request, id):
     rental_book = MajorBook.objects.get(pk=id)
     rental_status=rental_book.status #대여여부
@@ -88,15 +78,7 @@ def rental(request, id):
     #     messages.success(request, '대여가 불가능한 책입니다!')
     #     return redirect('book_list')
 
-# 마이페이지
-def mypage(request):
-    me = request.user
-    books = MajorBook.objects.all().filter(uploader=me).order_by('-id')
-    borrowed_books = BorrowedBook.objects.all().filter(borrower=me).order_by('-id')
-    return render(request, 'mypage.html', {'books': books,
-                                            'borrowed_books':borrowed_books,
-                                            })
-
+# 카테고리별로 보여주기
 def category_page(request, slug):
     if slug == 'no_category':
         category = '기타'
@@ -122,6 +104,25 @@ def category_page(request, slug):
                   }
                   )
 
+# 마이페이지
+def mypage(request):
+    me = request.user
+    books = MajorBook.objects.all().filter(uploader=me).order_by('-id')
+    borrowed_books = BorrowedBook.objects.all().filter(borrower=me).order_by('-id')
+    return render(request, 'mypage.html', {'books': books,
+                                            'borrowed_books':borrowed_books,
+                                            })
+
+# 내가 등록한 책 목록
+def mybook(request):
+    me = request.user
+    books = MajorBook.objects.all().filter(uploader=me).order_by('-id')
+    paginator = Paginator(books, 8)
+    page = request.GET.get('page')
+    posts = paginator.get_page(page) 
+    return render(request, 'mybook.html', {'books': books, 'posts':posts})
+
+# 내가 대여한 책
 def myborrowed_book(request):
     me = request.user
     books = BorrowedBook.objects.all().filter(borrower=me).order_by('-id')
@@ -129,3 +130,15 @@ def myborrowed_book(request):
     page = request.GET.get('page')
     posts = paginator.get_page(page) 
     return render(request, 'myborrowed_book.html', {'books': books, 'posts':posts})
+
+# 검색
+def search(request):
+    if request.method == 'POST':
+        searched = request.POST['searched']        
+        books = MajorBook.objects.filter(title__contains=searched)
+        paginator = Paginator(books, 8)
+        page = request.GET.get('page')
+        posts = paginator.get_page(page)
+        return render(request, 'searched.html', {'searched': searched, 'books': books, 'posts':posts})
+    else:
+        return render(request, 'searched.html')
