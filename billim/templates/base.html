@@ -109,15 +109,21 @@
                 </div> -->
         </div>
         <div id="billim" class="header_specific_in">
-            <div id="billim_1" class="billim_in">
-                공지사항
-            </div>
-            <div id="billim_2" class="billim_in">
-                이용안내
-            </div>
-            <div id="billim_3" class="billim_in">
-                만든이
-            </div>
+            <a href="{% url 'notice' %}">
+                <div id="billim_1" class="billim_in">
+                    공지사항
+                </div>
+            </a>
+            <a href="{% url 'guide' %}">
+                <div id="billim_2" class="billim_in">
+                    이용안내
+                </div>
+            </a>
+            <a href="{% url 'producer' %}">
+                <div id="billim_3" class="billim_in">
+                    만든이
+                </div>
+            </a>
         </div>
     </div>
     {% block content %}
