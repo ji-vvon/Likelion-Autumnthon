@@ -71,16 +71,20 @@
         </div>  -->
         <div id="book_new">
           {% for book in books %}
+            {% if book.img %}
             <a href="{%url 'detail' book.id %}">
               <div id="book_new_1" class="book"><img src="{{book.img.url}}" width="180" height="265"/></div>
             </a>
+            {% endif %}
           {% endfor %}
         </div>
         <div id="book_solution">
           {% for content in contents %}
+            {% if book.img %}
             <a href="{%url 'solution_detail' content.id %}">
               <div id="book_solution_1" class="book"><img src="{{content.img.url}}" width="180" height="265"/></div>
             </a>
+            {% endif %}
           {% endfor %}
         </div>
       </div>
