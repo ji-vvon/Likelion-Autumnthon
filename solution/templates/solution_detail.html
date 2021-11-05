@@ -6,14 +6,6 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"
     integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script src="/static/js/solution_detail.js"></script>
-   
-    <!-- <script>
-    function showRecommentForm(obj) {
-        comment_id = obj.getAttribute('value');
-        url = 'create_re_comment/' + {{data.id}} + '/' + comment_id;
-        document.getElementById('re_comment_form' + comment_id).innerHTML = '<form action="${url}" method="post" enctype="multipart/form-data">{% csrf_token %}{{form}}<button type="submit" id="submit">대댓글쓰기</button></form>';
-    }
-</script> -->
 </head>
 
 <body>
@@ -21,8 +13,6 @@
         <h1>{{data.title}}</h1>
         <hr>
         <div class="solution_container_content">
-
-
             {% if data.img %}
             <img src="{{data.img.url}}" alt="image" width="300" height="400">
             {%endif%}<br>
@@ -32,7 +22,6 @@
             {% if user == data.writer %}
             <a id="edit" href="{% url 'solution_update' data.id %}">수정하기</a>
                 <a id="edit" href="{% url 'solution_delete' data.id %}">삭제하기</a>
-         
             {%endif%}
         </div>
         <br>
@@ -69,10 +58,8 @@
             {% endfor %}
         </div>
         {% if user.is_authenticated %}
-        <!-- <span id="recomment" onclick="showRecommentForm(this)" value="{{comment.id}}">답댓글쓰기</span>
-        <div id="re_comment_form{{comment.id}}"></div> -->
         <div class="reply_container">
-            <div class="reply_button">답글 열기/닫기</div>
+            <div class="reply_button">답글 달기</div>
             <div class="reply_in">
                 <form id="recomment_form" action="{% url 'create_re_comment' data.id comment.id%}" method="post"
                     enctype="multipart/form-data">

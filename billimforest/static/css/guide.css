@@ -6,6 +6,7 @@ h1 {
 
 
 #container {
+  text-align: center;
     margin-left: 10vw;
     font-size: 1vw;
 }
@@ -16,4 +17,9 @@ hr {
     height: 10px;
     border: 0;
     box-shadow: 0 10px 10px -10px #bbb inset;
+  }
+
+  img {
+    width: 50vh;
+    height: 30vh;
   }
