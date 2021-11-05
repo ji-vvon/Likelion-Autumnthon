@@ -43,7 +43,7 @@ h1 {
     justify-content: center;
     align-items: center;
 }
-
+/* 
 #button_submit {
     font-size: 1vw;
     border: 0;
@@ -53,9 +53,21 @@ h1 {
     margin-top: 1vh;
     background-color: rgb(218, 68, 8);
     color: white;
+} */
+
+#button_submit {
+    /* border: 2px solid rgb(167, 167, 167); */
+    border:none;
+    background-color: rgb(218, 125, 88);
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    border-radius: 30px;
+    padding: 10px 25px;
+    margin: 5% 0;
+    font-family: 'GowunDodum-Regular';
 }
 
-input {
+/* input {
     width: 15vw;
     height: 5vh;
     margin-bottom: 2vh;
@@ -63,7 +75,22 @@ input {
     border-color: grey; 
     font-size: 1vw;
     margin-left: 45px;
+} */
+
+input {
+    width: 15vw;
+    border: none;
+    background-color: rgb(236, 231, 225);
+    border-radius: 20px;
+    padding: 20px;
+    margin: 5%;
+    font-size: 18px;
+    color: rgb(0, 0, 0);
+    resize: none;
+    
+    font-family: 'GowunDodum-Regular';
 }
+
 
 #bg {
     width: 100%;
