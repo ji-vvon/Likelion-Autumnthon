@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import auth
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from .forms import SignupForm
+from django.contrib.auth.forms import UserChangeForm
 
 def home(request):
     return render(request, 'home.html')# <임시> 이후 삭제 필요
@@ -37,7 +38,12 @@ def signup_view(request):
         if form.is_valid():
             user=form.save()
             auth.login(request, user)
+
+            user=UserChangeForm(instance = request.user).save(commit=False)
+            user.coin=3
+            user.save()
             return redirect('main')
+        
         return redirect('account:signup')
 
     else:

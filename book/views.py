@@ -5,6 +5,7 @@ from .models import MajorBook, BorrowedBook
 from .forms import BookForm, BorrowedBookForm
 from django.contrib import messages
 from solution.models import Solution#솔루션 책의 데이터
+from django.contrib.auth.forms import UserChangeForm
 
 def main(request):
     books = MajorBook.objects.all().order_by('-id')
@@ -45,6 +46,11 @@ def new(request):
             post.upload_date = timezone.now()
             post.uploader = request.user
             post.save()    
+        user=UserChangeForm(instance = request.user).save(commit=False)#대여시 코인을 차감해줍니다
+        if user.coin:
+            if user.coin>0:
+                user.coin+=3
+                user.save()
             return redirect('detail', post.id)
         return redirect('book_list')
     else:  #글을 쓰기위해 들어갔을 때
@@ -80,14 +86,23 @@ def rental(request, id):
     rental_status=rental_book.status #대여여부
     
     if rental_status == '대여 가능':
-        rental_book.status = '대여중'
-        rental_book.save()
-        messages.success(request, '대여가 성공했습니다!')
+        user=UserChangeForm(instance = request.user).save(commit=False)#대여시 코인을 차감해줍니다
+        if user.coin:
+            if user.coin>0:
+                user.coin-=1
+                user.save()
 
-        form=BorrowedBookForm().save(commit=False) #여기부터는 내가 빌린 책 기능을 위해 데이터를 넘겨주는 부분입니다.
-        form.borrower=request.user #로그인 된 유저를 빌린이에 추가합니다
-        form.borrow_book=rental_book#책을 외래키로 저장합니다
-        BorrowedBook=form.save()
+                rental_book.status = '대여중'
+                rental_book.save()
+                messages.success(request, '대여가 성공했습니다!')
+
+                form=BorrowedBookForm().save(commit=False) #여기부터는 내가 빌린 책 기능을 위해 데이터를 넘겨주는 부분입니다.
+                form.borrower=request.user #로그인 된 유저를 빌린이에 추가합니다
+                form.borrow_book=rental_book#책을 외래키로 저장합니다
+                BorrowedBook=form.save()          
+        else:
+            messages.success(request, '코인이 부족합니다!')
+
 
         return redirect('book_list')
     # else:
