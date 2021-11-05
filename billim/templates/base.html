@@ -84,9 +84,11 @@
                 </div>
             </a>
             {% endif %}
-            <div id="borrow_3" class="borrow_in">
-                책 요청하기
-            </div>
+            <a href="{% url 'mail' %}">
+                <div id="borrow_3" class="borrow_in">
+                    책 요청하기
+                </div>
+            </a>
         </div>
         <div id="solution" class="header_specific_in">
             <!-- 권한 부여 여부 -->
