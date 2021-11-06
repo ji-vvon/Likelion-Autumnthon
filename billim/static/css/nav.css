@@ -49,13 +49,14 @@ body {
 #register {
     /* left: 60%; */
     display: flex;
-    width: 15%;
+    width: 20%;
     height: 15vh;
-    margin-left: 65vw;
+    margin-left: 60%;
     background-color: white;
     line-height: 15vh;
     text-align: center;
     cursor: pointer;
+    /* background-color: red; */
 }
 
 #coin {
@@ -69,7 +70,7 @@ body {
 
 #mypage {
     margin-left: 1vw;
-    background-color: white;
+    /* background-color: white; */
     line-height: 15vh;
     text-align: center;
     cursor: pointer;
