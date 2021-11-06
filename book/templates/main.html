@@ -36,29 +36,68 @@
     </div>
 
   <div id="pop_category">
-    <div title="책 등록하기" id="pop_category_1" class="pop_category_in">
-      <div class="pop_category_text">
-        <!-- 책 등록하기 -->
+    {% if user.is_authenticated %}
+    <a href="{% url 'new' %}">
+      <div title="책 등록하기" class="pop_category_1 pop_category_in">
+        <div class="pop_category_text">
+          <!-- 책 등록하기 -->
+        </div>
       </div>
-    </div>
-    <div title="책 대여하기" id="pop_category_2" class="pop_category_in">
-      <div class="pop_category_text">
-        <!-- 책 대여하기 -->
+    </a>
+    {% else %}
+    <a onclick="alert('로그인 해주세요');" href="#">
+      <div title="책 등록하기" class="pop_category_1 pop_category_in">
+        <div class="pop_category_text">
+          <!-- 책 등록하기 -->
+        </div>
       </div>
-    </div>
-    <div title="솔루션 보기" id="pop_category_3" class="pop_category_in">
-      <div class="pop_category_text">
-        <!-- 솔루션 보기 -->
+    </a>
+    {% endif %}
+    {% if user.is_authenticated %}
+    <a href="{% url 'book_list' %}">
+      <div title="책 대여하기" class="pop_category_2 pop_category_in">
+        <div class="pop_category_text">
+          <!-- 책 대여하기 -->
+        </div>
       </div>
-    </div>
-    <div title="공지사항" id="pop_category_4" class="pop_category_in">
-      <div class="pop_category_text">
-        <!-- 공지사항 -->
+    </a>
+    {% else %}
+    <a onclick="alert('로그인 해주세요');" href="#">
+      <div title="책 대여하기" class="pop_category_2 pop_category_in">
+        <div class="pop_category_text">
+          <!-- 책 대여하기 -->
+        </div>
       </div>
+    </a>
+    {% endif %}
+    {% if user.is_authenticated %}
+    <a href="{% url 'solution_new'%}">
+      <div title="솔루션 보기" class="pop_category_3 pop_category_in">
+        <div class="pop_category_text">
+          <!-- 솔루션 보기 -->
+        </div>
+      </div>
+    </a>
+    {% else %}
+    <a onclick="alert('로그인 해주세요');" href="#">
+      <div title="솔루션 보기" class="pop_category_3 pop_category_in">
+        <div class="pop_category_text">
+          <!-- 솔루션 보기 -->
+        </div>
+      </div>
+    </a>
+    {% endif %}
+    <a href="{% url 'notice' %}">
+      <div title="공지사항" class="pop_category_4 pop_category_in">
+        <div class="pop_category_text">
+          <!-- 공지사항 -->
+        </div>
+      </div>
+    </a>
     </div>
   </div>
-  <div id="recommend">
 
+  <div id="recommend">
     <div id="recommend_category">
       <div id="new_book" class="recommend_in">새로운책</div>
       <div id="solution_book" class="recommend_in">최근 솔루션 등록</div>
