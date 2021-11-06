@@ -59,15 +59,16 @@ body {
 }
 
 #coin {
-    margin-right: 2vw;
     cursor: default;
+    margin-left: 1vw;
+}
+
+#logout, #login, #signup {
+    margin-left: 1vw;
 }
 
 #mypage {
-    /* left: 80%; */
-    /* width: 100px; */
-    height: 15vh;
-    margin-left: -5%;
+    margin-left: 1vw;
     background-color: white;
     line-height: 15vh;
     text-align: center;
