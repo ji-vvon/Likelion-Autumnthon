@@ -55,7 +55,7 @@ def new(request):
         user=UserChangeForm(instance = request.user).save(commit=False)#대여시 코인을 차감해줍니다
         if user.coin:
             if user.coin>0:
-                user.coin+=3
+                user.coin+=2
                 user.save()
             return redirect('detail', post.id)
         return redirect('book_list')
