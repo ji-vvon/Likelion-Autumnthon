@@ -18,13 +18,13 @@
 
 <body>
   <div id="profile">
-    <p>{{request.user.username}}님, 좋은 하루 되세요</p>
-    <p>이메일 : {{request.user.email}}</p>
-    <p>코인 : {{request.user.coin}}개</p>
+    <div id="profile_name_container"><p> <div id="profile_name">🍁 {{request.user.username}}</div>님, 좋은 하루 되세요 🍁</p></div>
+    <p style="font-weight: bold;">📧 : {{request.user.email}}</p>
+    <p style="font-weight: bold;">💰 : {{request.user.coin}}개</p>
     <br />
   </div>
 
-  <h2>&nbsp;&nbsp;내가 등록한 책</h2>
+  <h2 style="padding-left: 3vw;">내가 등록한 책</h2>
   <div class="row">
     <div class="col-12">
       <table class="table_book">
@@ -56,7 +56,7 @@
   </div>
   <hr />
 
-  <h2>&nbsp;&nbsp;내가 대여한 책</h2>
+  <h2 style="padding-left: 3vw;">내가 대여한 책</h2>
   <div class="row">
     <div class="col-12">
       <table class="table_book">
