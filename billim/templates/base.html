@@ -24,19 +24,25 @@
         </a>
         <div id="register">
             {% if not user.is_authenticated %}
+            <div id="login">
             <a href="{% url 'account:login' %}">로그인 &nbsp&nbsp&nbsp</a>
+            </div>
+            <div id="signup">
             <a href="{% url 'account:signup' %}">회원가입</a>
+            </div>
             {% else %}
             <div id="coin">
-            코인 : {{request.user.coin}}
+            💰 코인 : {{request.user.coin}}
             </div>
-            <a href="{% url 'account:logout' %}">로그아웃</a>
+            <div id="logout">
+                <a href="{% url 'account:logout' %}">로그아웃</a>
+                {% endif %}
+            </div>
+            <div id="mypage">
+            {% if user.is_authenticated %}
+                <a href="{% url 'mypage' %}">마이페이지</a>
             {% endif %}
-        </div>
-        <div id="mypage">
-        {% if user.is_authenticated %}
-            <a href="{% url 'mypage' %}">마이페이지</a>
-        {% endif %}
+            </div>
         </div>
     </div>
     <div id="header">
