@@ -40,7 +40,7 @@ def signup_view(request):
             auth.login(request, user)
 
             user=UserChangeForm(instance = request.user).save(commit=False)
-            user.coin=3
+            user.coin=2
             user.save()
             return redirect('main')
         
