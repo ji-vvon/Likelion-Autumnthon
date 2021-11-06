@@ -27,6 +27,9 @@
             <a href="{% url 'account:login' %}">로그인 &nbsp&nbsp&nbsp</a>
             <a href="{% url 'account:signup' %}">회원가입</a>
             {% else %}
+            <div id="coin">
+            코인 : {{request.user.coin}}
+            </div>
             <a href="{% url 'account:logout' %}">로그아웃</a>
             {% endif %}
         </div>

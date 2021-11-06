@@ -48,13 +48,19 @@ body {
 
 #register {
     /* left: 60%; */
-    width: 150px;
+    display: flex;
+    width: 200px;
     height: 15vh;
     margin-left: 65vw;
     background-color: white;
     line-height: 15vh;
     text-align: center;
     cursor: pointer;
+}
+
+#coin {
+    margin-right: 2vw;
+    cursor: default;
 }
 
 #mypage {

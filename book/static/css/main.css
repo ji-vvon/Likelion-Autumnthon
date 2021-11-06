@@ -197,6 +197,8 @@ img {
    height: 30vh;
    border-radius: 10%;
    float: left;
+   overflow: hidden;
+   text-overflow: ellipsis;
  }
 
  #more_link {
