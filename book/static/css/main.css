@@ -226,10 +226,6 @@ img {
     margin-left: 20vw;
 }
 
-#logo {
-    overflow: hidden;
-    display: flex;
-}
 p {
     font-size:17px;
     font-weight: bolder;
