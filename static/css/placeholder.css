@@ -1,0 +1,292 @@
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    margin: 0;
+}
+
+.maple {
+    width: 35%;
+    height: 70%;
+    background-size: cover;
+}
+
+#maple_1 {
+    position: absolute;
+    top: -18%;
+    left: -2%;
+    background-image: URL(../images/maple1.png);
+    transform-origin:left top;
+    animation-name: maple1;
+    animation-duration:2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
+}
+
+#maple_2 {
+    position: absolute;
+    top: 60%;
+    left: -7%;
+    background-image: URL(../images/maple2.png);
+    transform-origin:left bottom;
+    animation-name: maple2;
+    animation-duration:4s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-fill-mode: forwards
+}
+
+#maple_3 {
+    position: absolute;
+    top: -5%;
+    left: 75%;
+    background-image: URL(../images/maple3.png);
+    transform-origin:right top;
+    animation-name: maple3;
+    animation-duration:3s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-fill-mode: forwards
+}
+
+
+@-webkit-keyframes maple1 {
+    0% {
+      transform: rotate(0deg)
+    }
+    100% {
+        transform: rotate(15deg)
+    }
+  }
+
+  @-webkit-keyframes maple2 {
+    0% {
+      transform: rotate(-15deg)
+    }
+    100% {
+        transform: rotate(15deg)
+    }
+  }
+
+  @-webkit-keyframes maple3 {
+    0% {
+      transform: rotate(10deg)
+    }
+    100% {
+        transform: rotate(-10deg)
+    }
+  }
+
+
+/* ------------------------------ */
+
+body {
+    background-color: #ffc39b;
+    margin:0;
+ }
+ 
+ .patterns {
+   height: 100vh;
+ }
+ 
+ 
+ 
+ svg text {
+   font-family: Lora;
+   letter-spacing: 10px;
+   stroke: #ff4726;
+   font-size: 150px;
+   font-weight: 700;
+   stroke-width: 3;
+  
+   animation: textAnimate 5s infinite alternate;
+   
+ }
+ 
+ @keyframes textAnimate {
+   0% {
+     stroke-dasharray: 0 50%;
+     stroke-dashoffset:  20%;
+     fill:hsl(189, 68%, 75%)
+ 
+   }
+   
+   100% {
+     stroke-dasharray: 50% 0;
+     stroke-dashoffstet: -20%;
+     fill: hsl(189, 68%, 75%, 80%)
+   }
+   
+ }
+ 
+ 
+ /* --------------------------- */
+
+ @font-face {
+    font-family: 'GowunDodum-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunDodum-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+#wrapper2 {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color: rgb(0, 0, 0); */
+    margin-top: -47%;
+    /* background-color: red; */
+}
+
+ .wrapper {
+    position: flex;
+    height: 100vh;
+    /*This part is important for centering*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* top: 10%; */
+    /* left: 39%; */
+    /* background-color: blue; */
+  }
+  
+  .typing-demo {
+    text-shadow: -2px 0 rgb(255, 82, 38), 0 2px rgb(255, 82, 38), 2px 0 rgb(255, 82, 38), 0 -2px rgb(255, 82, 38);
+    font-family: 'GowunDodum-Regular';
+    font-weight: bold;
+    color: rgb(68, 68, 68);
+    width: 20ch;
+    animation: typing 2s steps(22), blink .5s step-end infinite alternate;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid;
+    font-size: 2.5em;
+  }
+  
+  @keyframes typing {
+    from {
+      width: 0
+    }
+  }
+      
+  @keyframes blink {
+    50% {
+      border-color: transparent
+    }
+  }
+
+  #title_wrapper {
+    animation-name: title_move;
+    animation-delay: 3s;
+    animation-duration:2s;
+    animation-iteration-count: 1;
+    animation-direction: alternate;
+    animation-fill-mode: forwards
+  }
+
+  /* ---------------------- */
+  
+  .book {
+    position: absolute;
+    margin-left: 50%;
+    margin-top: -20%;
+    transform-style: preserve-3d;
+    height: 200px;
+    cursor: pointer;
+    backface-visibility: visible;
+  }
+  
+  .front, .back, .page1, .page2, .page3, .page4, .page5, .page6 {
+    transform-style: preserve-3d;
+    position: absolute;
+    width: 200px;
+    height: 100%;
+    top: 0; left: 0;
+    transform-origin: left center;
+    transition: transform .5s ease-in-out, box-shadow .35s ease-in-out;
+  }
+  
+  .front, .back {
+    background: rgb(223, 67, 20);
+  }
+  
+  .front, .page1, .page3, .page5 {
+    border-bottom-right-radius: .5em;
+    border-top-right-radius: .5em;
+  }
+  
+  .back, .page2, .page4, .page6 {
+    border-bottom-right-radius: .5em;
+    border-top-right-radius: .5em;
+  }
+  
+  .page1 { 
+    background: #efefef;
+  }
+  
+  .page2 {
+    background: #efefef;
+  }
+  
+  .page3 {
+    background: #f5f5f5;
+  }
+  
+  .page4 {
+    background: #f5f5f5;
+  }
+  
+  .page5 {
+    background: #fafafa;
+    background-image: URL(../images/start.png);
+    background-size: cover;
+  }
+  
+  .page6 {
+    background: #fdfdfd;
+    background-image: URL(../images/trats.png);
+    background-size: cover;
+  }
+  
+  .book:hover .front {
+    transform: rotateY(-160deg) scale(1.1);
+    box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2);
+  }
+  
+  .book:hover .page1 {
+    transform: rotateY(-150deg) scale(1.1);
+    box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2);
+  }
+  
+  .book:hover .page2 {
+    transform: rotateY(-30deg) scale(1.1);
+    box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2);
+  }
+  
+  .book:hover .page3 {
+    transform: rotateY(-140deg) scale(1.1);
+    box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2);
+  }
+  
+  .book:hover .page4 {
+    transform: rotateY(-40deg) scale(1.1);
+    box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2);
+  }
+  
+  .book:hover .page5 {
+    transform: rotateY(-130deg) scale(1.1);
+    box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2);
+  }
+  
+  .book:hover .page6 {
+    transform: rotateY(-50deg) scale(1.1);
+    box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2);
+  }
+  
+  .book:hover .back {
+    transform: rotateY(-20deg) scale(1.1);
+  }
