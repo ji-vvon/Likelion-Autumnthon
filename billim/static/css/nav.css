@@ -49,7 +49,7 @@ body {
 #register {
     /* left: 60%; */
     display: flex;
-    width: 200px;
+    width: 15%;
     height: 15vh;
     margin-left: 65vw;
     background-color: white;
@@ -65,9 +65,9 @@ body {
 
 #mypage {
     /* left: 80%; */
-    width: 100px;
+    /* width: 100px; */
     height: 15vh;
-    margin-left: 10px;
+    margin-left: -5%;
     background-color: white;
     line-height: 15vh;
     text-align: center;
