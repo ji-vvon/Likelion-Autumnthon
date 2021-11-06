@@ -8,7 +8,11 @@
   <h1>책 대여하기{%if category %} - {{category}} {% endif %}</h1>
   <hr />
   <div class="rental_cat">
-    <button id="cat_btn" type="button" onclick="location.href='/book/'">
+    <button
+      id="cat_btn"
+      type="button"
+      onclick="location.href='/book/book_list'"
+    >
       전체
     </button>
     <button
@@ -39,7 +43,13 @@
     >
       예술
     </button>
-    <button id="cat_btn" type="button" onclick="location.href='/book/category/etc'">기타</button>
+    <button
+      id="cat_btn"
+      type="button"
+      onclick="location.href='/book/category/etc'"
+    >
+      기타
+    </button>
   </div>
   <div class="body">
     {% for content in posts %} {% if content.status == '대여 가능' %}
