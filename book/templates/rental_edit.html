@@ -17,7 +17,7 @@
         <input type="text" name="publisher" value="{{book.publisher}}" />
       </h2>
       <h2>
-        출간일: <input type="text" name="pub_date" value="{{book.pub_date | date:"Y-m-d"}}" />
+        출간일: <input type="text" name="pub_date" value="{{book.pub_date | date:'Y-m-d'}}" />
       </h2>
       <h2>
         대여 여부 : <input type="text" name="status" value="{{book.status}}" />
@@ -26,12 +26,11 @@
       <h2>
         책 상태 :
         <textarea name="info_text" id="" cols="30" rows="10">
-{{book.info_text}}</textarea
-        >
+{{book.info_text}}</textarea>
       </h2>
       <br />
 
-      <button type="submit" onclick="location.href='{%url 'new'%}'" id="submit">
+      <button type="submit" onclick="location.href='{% url 'new' %}'" id="submit">
         수정하기
       </button>
     </form>
