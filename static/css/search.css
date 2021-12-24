@@ -1,0 +1,39 @@
+.body {
+    margin: 0 10%;
+    display: inline-block;
+    color: rgb(0, 0, 0);
+}
+
+h2 {
+    font-family: 'Pretendard-Regular';
+}
+
+.content {
+    border:2px solid rgb(122, 136, 197);
+    margin: 30px 20px;
+    padding: 30px;
+    width: 350px;
+    height: 450px;
+    border-radius: 10%;
+    float: left;
+}
+
+.sub {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.page {
+    display: inline-block;
+    font-size: 20px;
+}
+
+img {
+    height: 250px;
+    width: 180px;
+    object-fit: fill;
+
+}
+
+#more_link {
+    color: rgb(170, 99, 99);
+}

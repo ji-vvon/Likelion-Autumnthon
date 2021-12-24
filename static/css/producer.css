@@ -1,0 +1,26 @@
+h1 {
+  text-align: center;
+  margin-top: 80px;
+  font-family: 'GowunDodum-Regular';
+}
+
+
+#container {
+  margin-bottom:5%;
+  /* margin-left: 10vw; */
+  text-align: center;
+  font-size: 1vw;
+}
+
+hr {
+  margin: 0 15%;
+  margin-top: 70px;
+  height: 10px;
+  border: 0;
+  box-shadow: 0 10px 10px -10px #bbb inset;
+}
+
+img {
+width: 130vh;
+height: 50vh;
+}

@@ -1,0 +1,237 @@
+body {
+  margin: 0%;
+  -ms-overflow-style: none;
+  font-family: "GowunDodum-Regular";
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+#logo {
+  width: 100%;
+  height: 50vh;
+  background-color: rgb(129, 100, 88);
+  text-align: center;
+  line-height: 50vh;
+  background-image: URL(../images/logo_img.jpg);
+  background-size: cover;
+}
+
+#search {
+  width: 100%;
+  height: 15vh;
+  /* background-color: rgb(255, 118, 64); */
+  background: linear-gradient(to right, rgb(218, 68, 8), rgb(255, 118, 64));
+  text-align: center;
+  line-height: 15vh;
+}
+
+#search_input {
+  width: 70%;
+  height: 10vh;
+  font-size: 1.5vw;
+  border: 0;
+  border-bottom: solid 3px;
+  border-color: white;
+  background-color: rgb(255, 118, 64, 0);
+  color: white;
+  padding-left: 20px;
+  font-family: "GowunDodum-Regular";
+}
+
+#search_input::placeholder {
+  color: white;
+}
+
+#search_submit {
+  font-family: "GowunDodum-Regular";
+  width: 15vw;
+  height: 10vh;
+  font-size: 1.5vw;
+  margin-left: 1vw;
+  color: white;
+  background-color: rgb(255, 118, 64, 0);
+  border: solid 3px;
+  border-color: white;
+  cursor: pointer;
+  border-radius: 30px;
+}
+
+#pop_category {
+  display: flex;
+  width: 100%;
+  height: 40vh;
+  margin: 0%;
+  /* background-color: black; */
+  align-items: center;
+  justify-content: center;
+}
+
+.pop_category_in {
+  width: 10vw;
+  height: 10vw;
+  margin-left: 2.5vw;
+  margin-top: 2vh;
+  border-radius: 50%;
+  background-color: white;
+  /* color: white; */
+  transition: all 0.2s ease-in-out;
+
+  border: dotted 5px;
+  border-color: white;
+  cursor: pointer;
+}
+
+.pop_category_in:hover {
+  border: dotted 5px;
+  border-color: black;
+}
+
+.pop_category_1 {
+  /* margin-left: 25%; */
+  background-image: URL(../images/add.png);
+  background-size: contain;
+}
+
+.pop_category_2 {
+  background-image: URL(../images/borrow.png);
+  background-size: contain;
+}
+
+.pop_category_3 {
+  background-image: URL(../images/solution.png);
+  background-size: contain;
+}
+
+.pop_category_4 {
+  background-image: URL(../images/notice.png);
+  background-size: contain;
+}
+
+.pop_category_text {
+  text-align: center;
+  line-height: 20vh;
+}
+
+.recommend_in {
+  width: 100%;
+  height: 10vh;
+  line-height: 10vh;
+  text-align: center;
+  border-bottom: solid 3px;
+  border-color: rgb(255, 118, 64, 0);
+  color: white;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.recommend_in:hover {
+  font-weight: bold;
+  border-bottom: solid 3px;
+  border-color: white;
+  transition: all 0.2s ease-in-out;
+}
+
+#recommend_book {
+  margin-top: 5vh;
+}
+
+#recommend {
+  display: flex;
+  width: 100%;
+  height: 45vh;
+  margin: 0%;
+  /* background-color: rgb(255, 118, 64); */
+  background: linear-gradient(to right, rgb(218, 68, 8), rgb(255, 118, 64));
+  font-size: 1.2vw;
+}
+
+#book_container {
+  /* display: flex; */
+  width: 75%;
+  height: 100%;
+  margin-left: 5vw;
+  overflow: hidden;
+}
+
+#book_recommend,
+#book_new,
+#book_solution {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+#recommend_category {
+  background-color: rgb(255, 118, 64, 0);
+  margin-left: 3vw;
+  width: 15%;
+  height: 100%;
+  text-align: left;
+}
+
+.book {
+  background-color: rgb(238, 227, 227);
+  margin: 15px 10px;
+  padding: 2vh;
+  width: 25vh;
+  height: 30vh;
+  border-radius: 10%;
+  float: left;
+}
+
+img {
+  width: 20vh;
+  height: 23vh;
+}
+
+#book_new {
+  text-align: center;
+}
+
+.recent_solution_container {
+  text-align: center;
+  background-color: rgb(238, 227, 227);
+  margin: 15px 10px;
+  padding: 2vh;
+  width: 25vh;
+  height: 30vh;
+  border-radius: 10%;
+  float: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#more_link {
+  color: rgb(170, 99, 99);
+}
+
+.book:hover {
+  /* background-color: grey; */
+}
+
+#book_recommend_1,
+#book_new_1,
+#book_solution_1 {
+  margin-left: 4vw;
+}
+
+#bottom {
+  display: flex;
+  width: 100%;
+  height: 25vh;
+  margin: 0%;
+  background-color: rgb(199, 199, 199);
+  line-height: 10vh;
+}
+
+#bottom_text {
+  margin-top: 3vh;
+  margin-left: 20vw;
+}
+
+p {
+  font-size: 15px;
+  font-weight: bolder;
+}

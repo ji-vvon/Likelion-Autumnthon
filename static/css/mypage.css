@@ -1,0 +1,26 @@
+.table_book {
+    margin-left: 3vw;
+    font-size: 1vw;
+}
+
+#profile {
+    color: white;
+    width: 100%;
+    height: 20%;
+    padding-left: 3vw;
+    font-size: 1.5vw;
+    background: linear-gradient(to right, rgb(218, 68, 8), rgb(255, 118, 64));
+}
+
+#profile_name_container {
+    display: flex;
+    padding-top: 5vh;
+}
+
+#profile_name {
+    font-weight: bold;
+}
+
+hr {
+    border-top: 5px solid rgb(218, 68, 8);
+}

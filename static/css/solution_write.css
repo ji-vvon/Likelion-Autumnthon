@@ -1,0 +1,60 @@
+@font-face {
+    font-family: 'GowunDodum-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunDodum-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.container {
+    text-align: center;
+    margin: 5% 10%;
+}
+
+
+h1 {
+    text-align: center;
+    margin-top: 80px;
+    font-family: 'GowunDodum-Regular';
+}
+
+h2 {
+    color: rgb(58, 58, 66);
+    font-family: sans-serif;
+    text-align: right;
+    margin-top: 30px;
+    margin-right: 25%;
+    font-family: 'GowunDodum-Regular';
+}
+
+hr {
+    margin: 0 15%;
+    margin-top: 70px;
+    height: 10px;
+    border: 0;
+    box-shadow: 0 10px 10px -10px #bbb inset;
+}
+
+input,
+textarea,
+select {
+    font-family: 'GowunDodum-Regular';
+    width: 50%;
+    border: none;
+    background-color: rgb(225, 232, 236);
+    border-radius: 20px;
+    padding: 20px;
+    margin: 0px 50px;
+    font-size: 18px;
+    color: rgb(0, 0, 0);
+}
+
+#submit {
+    border: 2px solid rgb(167, 167, 167);
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    border-radius: 30px;
+    padding: 10px 25px;
+    margin-bottom: 20px;
+    font-family: 'GowunDodum-Regular';
+}

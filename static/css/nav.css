@@ -1,0 +1,155 @@
+@font-face {
+    font-family: 'GowunDodum-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunDodum-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+body {
+    margin: 0%;
+    -ms-overflow-style: none;
+    /* font-family: Nanum Gothic; */
+    font-family: 'GowunDodum-Regular';
+}
+
+::-webkit-scrollbar { 
+    display: none;
+}
+
+#top {
+    display: flex;
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 15vh;
+    margin: 0%;
+    background-color: white;
+    font-size: 0.9vw;
+}
+
+#top_logo {
+    width: 120px;
+    height: 120px;
+    margin-left: 3vw;
+    margin-top: 1vh;
+    background-color: white;
+    line-height: 70px;
+    text-align: center;
+    transition: all .2s ease-in-out;
+
+    background-image: URL(../images/logo.png);
+    background-size: contain;
+    cursor: pointer;
+}
+
+#top_logo:hover {
+    /* background-color: grey; */
+}
+
+#register {
+    /* left: 60%; */
+    display: flex;
+    width: 20%;
+    height: 15vh;
+    margin-left: 60%;
+    background-color: white;
+    line-height: 15vh;
+    text-align: center;
+    cursor: pointer;
+    /* background-color: red; */
+}
+
+#coin {
+    cursor: default;
+    margin-left: 1vw;
+}
+
+#logout, #login, #signup {
+    margin-left: 1vw;
+}
+
+#mypage {
+    margin-left: 1vw;
+    /* background-color: white; */
+    line-height: 15vh;
+    text-align: center;
+    cursor: pointer;
+}
+
+#header {
+    display: flex;
+    position: sticky;
+    top: 15vh;
+    left: 0;
+    width: 100%;
+    height: 8vh;
+    margin: 0%;
+    background-color: white;
+    font-size: 1.2vw;
+}
+
+.header_in {
+    width: 20%;
+    height: 100%;
+    opacity: 100%;
+    transition: all .2s ease-in-out;
+    cursor: pointer;
+}
+.header_in:not(#header_4) {
+    box-shadow: 3px 1px 5px -4px;
+}
+
+.header_in:hover {
+    background-color: rgb(212, 212, 212);
+}
+
+#header_1 {
+    margin-left: 10%;
+}
+
+.header_text {
+    text-align: center;
+    line-height: 8vh;
+}
+
+#header_specific {
+    display: flex;
+    position: sticky;
+    top: 23vh;
+    width: 100%;
+    height: 1px;
+    background-color: white;
+    transition: all .2s ease-in-out;
+    overflow: hidden;
+    cursor: pointer;
+    font-size: 1.2vw;
+}
+
+.header_specific_in {
+    width: 20%;
+    margin: 0;
+    height: 10vh;
+    line-height: 10vh;
+    text-align: center;
+    transition: all .2s ease-in-out;
+}
+
+#enroll {
+    margin-left: 10%;
+}
+
+.enroll_in, .borrow_in, .solution_in, .billim_in {
+    width: 100%;
+    background-color: white;
+    transition: all .2s ease-in-out;
+}
+
+.enroll_in:hover, .borrow_in:hover, .solution_in:hover, .billim_in:hover {
+    width: 100%;
+    background-color: rgb(212, 212, 212);
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}

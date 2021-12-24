@@ -1,0 +1,52 @@
+body {
+    text-align: center;
+}
+
+img {
+    width:250px;
+    height: 320px;
+}
+
+.div1 {
+    float: left;
+    padding: 10px;
+    margin:0 10%;
+    margin-left:20%;
+    padding-bottom: 30%;
+}
+
+.div2 {
+    text-align: left;
+    margin:5% 10%;
+    font-size: 20px;
+
+}
+
+
+hr {
+    margin : 3% 10%;
+    border : 1px solid rgb(131, 131, 131);
+}
+
+.book_container {
+  box-shadow: 10px 10px 30px gray;
+    padding-top: 2%;
+    padding-bottom: 5%;
+    margin : 3% 18%;
+    border-radius: 30px;
+}
+
+#book_rental_btn {
+color: #000000;
+background-color: rgb(240, 212, 212);
+border: none;
+border-radius: 8px;
+font-family: 'GowunDodum-Regular';
+font-size:18px;
+padding:8px;
+
+}
+
+#edit_link, #delete_link {
+  color:red;
+}
