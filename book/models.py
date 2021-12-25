@@ -26,6 +26,7 @@ class MajorBook(models.Model):
     info_text = models.TextField(max_length=200) #내용
     img = models.ImageField(upload_to="book/", blank = True, null = True) #이미지
     image_thumbnail = ImageSpecField(source = 'img', processors=[ResizeToFill(200,250)])
+    crawling_img_url= models.CharField(max_length=1000, null=True)#만약 유저가 직접 등록한 이미지가 없을시, 크롤링을 통해 이미지 url을 가져옵니다.
     uploader = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE) #작성자
     upload_date = models.DateTimeField(auto_now_add=True) #작성일
     status = models.CharField(max_length=10, choices=status_select, default='대여가능') #대여가능여부

@@ -7,6 +7,13 @@ from django.contrib import messages
 from solution.models import Solution#솔루션 책의 데이터
 from django.contrib.auth.forms import UserChangeForm
 
+from selenium import webdriver
+from selenium.webdriver.common.alert import Alert
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
+import time
+
 def main(request):
     b = MajorBook.objects.all().order_by('-id')
     book_paginator = Paginator(b, 4)
@@ -51,6 +58,9 @@ def new(request):
             post = form.save(commit = False)
             post.upload_date = timezone.now()
             post.uploader = request.user
+            if not post.img:#만약 등록한 이미지가 없다면 크롤링하여 보여줍니다.
+                img_url=crawler(post.title)
+                post.crawling_img_url = img_url
             post.save()           
         else:
             messages.error(request, '형식에 맞게 다시 등록해주세요')
@@ -193,3 +203,14 @@ def search(request):
 #placeholder
 def placeholder(request):
     return render(request, 'placeholder.html', {})
+
+def crawler(name):#'네이버 책'에 연결되어 검색된 책의 이미지 url을 출력하는 크롤러입니다.
+    link='https://book.naver.com/search/search.naver?sm=sta_hty.book&sug=pre&where=nexearch&query='+str(name)
+    driver = webdriver.Chrome('/Users\HP\Desktop\chromedriver')
+    driver.get(link)
+
+    book = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, '//*[@id="searchBiblioList"]/li[1]/div/div/a/img')))
+    img_link=book.get_attribute("src")
+
+    driver.quit()
+    return img_link

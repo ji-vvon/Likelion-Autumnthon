@@ -57,8 +57,11 @@
       <h2><a href="{%url 'detail' content.id %}">{{content.title}}</a></h2>
       <div class="sub">
         {{content.author}} | {{content.publisher}}<br /><br />
+        <!-- 만약 등록한 이미지가 있다면 이미지를 보여주고, 이미지가 없다면 크롤링해 보여줍니다 -->
         {% if content.img %}
         <a id="more"><img src="{{content.image_thumbnail.url}}" /></a>
+        {% else %}
+        <a id="more"><img src="{{content.crawling_img_url}}" /></a>
         {% endif %}
         <br />
       </div>
